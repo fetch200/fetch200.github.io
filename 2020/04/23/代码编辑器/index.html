@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/logo.png">
+  <link rel="icon" type="image/png" href="/img/logo.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>代码编辑器 - 浪里淘沙的小法师</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>浪里淘沙的小法师</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-04-23 21:00">
+      2020年4月23日 晚上
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.1k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      14
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>常用的两个代码编辑器的软件配置，内容包括 VS Code 配置，WebStorm 配置。</p>
+<h2 id="一、VS-Code-配置"><a href="#一、VS-Code-配置" class="headerlink" title="一、VS Code 配置"></a>一、VS Code 配置</h2><h3 id="1-软件介绍"><a href="#1-软件介绍" class="headerlink" title="1. 软件介绍"></a>1. 软件介绍</h3><p>VSCode 全称 Visual Studio Code，是微软出的一款轻量级代码编辑器（免费、开源）。</p>
+<h3 id="2-基本操作"><a href="#2-基本操作" class="headerlink" title="2. 基本操作"></a>2. 基本操作</h3><p><img src="https://cdn.nlark.com/yuque/0/2020/png/916537/1585400686174-7687c288-5a80-464b-9557-34c33dc2234f.png#align=left&display=inline&height=476&margin=%5Bobject%20Object%5D&originHeight=476&originWidth=582&size=0&status=done&style=none&width=582" srcset="/img/loading.gif" alt=""></p>
+<p>安装时推荐勾选 1、2、4</p>
+<ul>
+<li>1 和 2 勾选，可以对文件、目录点击鼠标右键，选择使用 VScode 打开（超方便）</li>
+<li>3 勾选，会让 VS Code 支持的代码文件全部变成 VS Code 默认打开，文件图标也会随之更改</li>
+<li>4 勾选，会自动配置环境变量（很贴心）</li>
+</ul>
+<h3 id="3-界面介绍"><a href="#3-界面介绍" class="headerlink" title="3. 界面介绍"></a>3. 界面介绍</h3><p><img src="https://cdn.nlark.com/yuque/0/2020/png/916537/1585400686114-af26d548-42c4-4c51-abf5-46d40aa97f96.png#align=left&display=inline&height=763&margin=%5Bobject%20Object%5D&originHeight=763&originWidth=1178&size=0&status=done&style=none&width=1178" srcset="/img/loading.gif" alt=""></p>
+<h3 id="4-基本配置"><a href="#4-基本配置" class="headerlink" title="4. 基本配置"></a>4. 基本配置</h3><ol>
+<li>「菜单栏」→「查看」→「外观」→「隐藏菜单栏」+「向右移动侧边栏」</li>
+<li>「设置」→「Auto Save：onFocusChange」</li>
+<li>「设置」→「√ Format On Save」</li>
+<li>「设置」→「Font Family：’Fira Code’, Consolas, ‘Courier New’, monospace」</li>
+<li>「设置」→「Font Ligatures：在 settings.json 中编辑」→「”editor.fontLigatures”: true」<h3 id="5-配置-VS-Code-终端"><a href="#5-配置-VS-Code-终端" class="headerlink" title="5. 配置 VS Code 终端"></a>5. 配置 VS Code 终端</h3></li>
+</ol>
+<p>VS Code 的默认 shell 是 powershell，我们要把它换成 Cmder 下的 bash</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/916537/1585467606472-9d62c1e2-c104-4db8-8800-dd5800ce8c57.png#align=left&display=inline&height=110&margin=%5Bobject%20Object%5D&name=image.png&originHeight=220&originWidth=1308&size=17901&status=done&style=none&width=654" srcset="/img/loading.gif" alt="image.png"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/916537/1585468100013-a457a04b-7878-44f9-8ca5-e48391328d4c.png#align=left&display=inline&height=98&margin=%5Bobject%20Object%5D&name=image.png&originHeight=196&originWidth=1308&size=15897&status=done&style=none&width=654" srcset="/img/loading.gif" alt="image.png"></p>
+<p>按照 <a href="https://github.com/cmderdev/cmder/wiki/Seamless-VS-Code-Integration#use-cmder-embedded-git-in-vscode" target="_blank" rel="noopener"><em>Cmder 的 Wiki</em></a> 进行配置，在 VS Code 打开 setting.json 文件，把这三条语句添加进去</p>
+<pre><code class="hljs css">"<span class="hljs-selector-tag">git</span><span class="hljs-selector-class">.enabled</span>": <span class="hljs-selector-tag">true</span>,
+"<span class="hljs-selector-tag">git</span><span class="hljs-selector-class">.path</span>": "<span class="hljs-selector-attr">[cmder_root]</span>\\<span class="hljs-selector-tag">vendor</span>\\<span class="hljs-selector-tag">git-for-windows</span>\\<span class="hljs-selector-tag">cmd</span>\\<span class="hljs-selector-tag">git</span><span class="hljs-selector-class">.exe</span>",
+"<span class="hljs-selector-tag">terminal</span><span class="hljs-selector-class">.integrated</span><span class="hljs-selector-class">.shell</span><span class="hljs-selector-class">.windows</span>": "<span class="hljs-selector-attr">[cmder_root]</span>\\<span class="hljs-selector-tag">vendor</span>\\<span class="hljs-selector-tag">git-for-windows</span>\\<span class="hljs-selector-tag">bin</span>\\<span class="hljs-selector-tag">bash</span><span class="hljs-selector-class">.exe</span>",</code></pre>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/916537/1585468357233-aee9d711-3366-4c5a-aa52-5b2798d39aae.png#align=left&display=inline&height=58&margin=%5Bobject%20Object%5D&name=image.png&originHeight=99&originWidth=1144&size=33114&status=done&style=none&width=669" srcset="/img/loading.gif" alt="image.png"></p>
+<h3 id="6-好用的插件"><a href="#6-好用的插件" class="headerlink" title="6. 好用的插件"></a>6. 好用的插件</h3><ol>
+<li>Chinese (Simplified) Language Pack for Visual Studio Code – 将 VS Code 界面变成简体中文</li>
+<li>Code Spell Checker – 拼写检查器，帮助捕获常见的拼写错误</li>
+<li>Markdown All in One – 包含了最常用的 Markdown 优化</li>
+<li>Markdown Preview Github Styling – 采用 Github 使用的 Markdown 渲染样式</li>
+<li>Vutur – Vue 插件工具</li>
+<li>Vue VSCode Snippets – Vue 快捷输入工具</li>
+</ol>
+<h3 id="7-常用快捷键"><a href="#7-常用快捷键" class="headerlink" title="7. 常用快捷键"></a>7. 常用快捷键</h3><p><strong>软件操作相关</strong></p>
+<p>把调出命令行从「Ctrl + Shift + P」改成 「Ctrl + A」</p>
+<ol>
+<li>「Ctrl + Shift + A」– 调出命令行（命令行操作无敌，能做很多事情）</li>
+<li>「Ctrl + Shift + `」– 新建终端</li>
+<li>「Ctrl + P」– 快速搜索文件</li>
+<li>「Ctrl + K + S」– 查看或修改快捷方式</li>
+<li>「F11」– 全屏</li>
+</ol>
+<p><strong>文本编辑相关</strong></p>
+<ol>
+<li>「Ctrl + C」/「Ctrl + V」– 如果不选中，默认复制或剪切一整行</li>
+<li>「Alt + Up」/「Alt + Down」– 向上或向下移动一行</li>
+<li>「Shift + Alt + Up」/「Shift + Alt + Down」– 向上或向下复制一行</li>
+<li>「Shift + Delete」– 删除当前行</li>
+<li>「Ctrl + Enter」/「Ctrl + Shift + Enter」– 在当前行下边或上边插入一行</li>
+<li>「Home」/「End」– 移动到行首或行尾</li>
+<li>「Ctrl + Home」/ 「Ctrl + End」– 移动到文件开头或结尾</li>
+<li>「Shift + Home」/「Shift + End」– 选中到行首或行尾</li>
+<li>「Ctrl + /」– 切换文本注释</li>
+<li>「! + Tab」/「div + Tab」/「ul&gt;li + Tab」 – Emmet 快捷操作</li>
+<li>「Ctrl + F」/「Ctrl + H」– 查找或替换</li>
+<li>「Alt + Z」– 切换自动换行</li>
+<li>「Alt + 单机」– 多位置输入</li>
+</ol>
+<p><strong>Markdown 插件下的快捷键和命令</strong><br>**</p>
+<ol>
+<li>「Ctrl + K V」– 预览到另一边</li>
+<li>「Ctrl + Shift + V」– 预览</li>
+<li>「Ctrl + M」– 切换数学环境</li>
+<li>「Markdown: Create Table of Contents」– 创建目录</li>
+<li>「Markdown: Update Table of Contents」– 更新目录</li>
+<li>「Markdown: Print current document to HTML」– 打印当前文档到 HTML<h3 id="8-常用命令"><a href="#8-常用命令" class="headerlink" title="8. 常用命令"></a>8. 常用命令</h3></li>
+</ol>
+<ol>
+<li>「Format Document」– 格式化文档</li>
+<li>「File: Toggle Auto Save」– 切换自动保存</li>
+<li>「View: Toggle Word Wrap」– 切换自动换行</li>
+<li>「Emmet: Wrap Individual Lines with Abbreviation」– 输入缩写包围个别行<ul>
+<li>选中多个数据 → 输入缩写包围个别字 →「div* + Enter」</li>
+<li>选中多个数据 → 输入缩写包围个别字 →「ul&gt;li* + Enter」</li>
+</ul>
+</li>
+</ol>
+<h2 id="二、WebStorm-配置"><a href="#二、WebStorm-配置" class="headerlink" title="二、WebStorm 配置"></a>二、WebStorm 配置</h2><h3 id="1-软件介绍-1"><a href="#1-软件介绍-1" class="headerlink" title="1. 软件介绍"></a>1. 软件介绍</h3><p>WebStorm 是 JetBrains 公司旗下一款 JavaScript 开发工具（收费，多多支持正版）。</p>
+<h3 id="2-界面概览"><a href="#2-界面概览" class="headerlink" title="2. 界面概览"></a>2. 界面概览</h3><p>WebStorm 没有中文版，多多熟悉界面。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/916537/1586271936422-88c08d04-32d5-4b53-aeaa-30eb4cf06a0d.png#align=left&display=inline&height=971&margin=%5Bobject%20Object%5D&name=Snipaste_2020-04-07_22-07-26.png&originHeight=971&originWidth=1347&size=77696&status=done&style=none&width=1347" srcset="/img/loading.gif" alt="Snipaste_2020-04-07_22-07-26.png"></p>
+<h3 id="3-基本配置"><a href="#3-基本配置" class="headerlink" title="3. 基本配置"></a>3. 基本配置</h3><ol>
+<li>将侧边栏移动到右边</li>
+</ol>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/916537/1586313712619-eb654323-4170-4dc8-9fda-2bc417568cec.png#align=left&display=inline&height=424&margin=%5Bobject%20Object%5D&name=image.png&originHeight=508&originWidth=635&size=154191&status=done&style=none&width=530" srcset="/img/loading.gif" alt="image.png"></p>
+<ol start="2">
+<li>字体设置为 “Fira Code”，启动连体字</li>
+</ol>
+<p>「Settings」→「Font」→「Font：Fira Code」+「Size：14」+「√ Enable font ligatures」</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/916537/1586314097138-8c30c6b3-9b75-4a59-8a27-4daa6babb6d2.png#align=left&display=inline&height=238&margin=%5Bobject%20Object%5D&name=image.png&originHeight=390&originWidth=1224&size=47641&status=done&style=none&width=746" srcset="/img/loading.gif" alt="image.png"></p>
+<ol start="3">
+<li>修改快捷键在 「settings」找到 Keymap 修改</li>
+</ol>
+<p>把 Tool Windows → Terminal 从「Alt + F12」改成「Ctrl + Shift + `」<br>把 Navigate → File 从「Ctrl + Shift + N」改成「Ctrl + P」<br>把 重做 Redo 从「Ctrl + Shift + Z」改成 「Ctrl + Y」</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/916537/1588767090625-7dc57463-32d7-4462-b898-ed1843a9f87b.png#align=left&display=inline&height=338&margin=%5Bobject%20Object%5D&name=image.png&originHeight=676&originWidth=1202&size=73624&status=done&style=none&width=601" srcset="/img/loading.gif" alt="image.png"></p>
+<ol start="4">
+<li>修改界面主题</li>
+</ol>
+<p>在插件（plugins）里面搜索「Material Theme UI」并安装，然后在选项里自己配，里面点点点</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/916537/1588767167909-80501ce7-7865-45f6-84fc-e6f8df9177b2.png#align=left&display=inline&height=329&margin=%5Bobject%20Object%5D&name=image.png&originHeight=549&originWidth=999&size=72669&status=done&style=none&width=598" srcset="/img/loading.gif" alt="image.png"></p>
+<h3 id="4-配置-WebStorm-终端"><a href="#4-配置-WebStorm-终端" class="headerlink" title="4. 配置 WebStorm 终端"></a>4. 配置 WebStorm 终端</h3><p>把终端换成 Cmder 下的 Bash</p>
+<ol>
+<li>「Settings」→「Tools」→「Terminal」→「Shell path：bash路径」，我的路径如下</li>
+</ol>
+<pre><code class="hljs taggerscript">D:<span class="hljs-symbol">\S</span>oftwares<span class="hljs-symbol">\c</span>mder<span class="hljs-symbol">\v</span>endor<span class="hljs-symbol">\g</span>it-for-windows<span class="hljs-symbol">\b</span>in<span class="hljs-symbol">\b</span>ash.exe</code></pre>
+
+
+<ol start="2">
+<li>「Settings」→「Version Control」→「Git」→「Path to Git executable：git路径」，我的路径如下</li>
+</ol>
+<pre><code class="hljs taggerscript">D:<span class="hljs-symbol">\S</span>oftwares<span class="hljs-symbol">\c</span>mder<span class="hljs-symbol">\v</span>endor<span class="hljs-symbol">\g</span>it-for-windows<span class="hljs-symbol">\c</span>md<span class="hljs-symbol">\g</span>it.exe</code></pre>
+
+
+<p>错误示例：</p>
+<p>我根据网上教程将「Shell path：bash路径」设置成如下，发现不可用</p>
+<pre><code class="hljs groovy"><span class="hljs-string">"cmd.exe"</span> /k <span class="hljs-string">""</span><span class="hljs-string">D:</span>\cmder\vendor\init.bat<span class="hljs-string">""</span></code></pre>
+
+
+<h3 id="5-常用快捷键"><a href="#5-常用快捷键" class="headerlink" title="5. 常用快捷键"></a>5. 常用快捷键</h3><ol>
+<li>「Ctrl + Shift + A」– 调出命令行</li>
+<li>「Shift Shift」– 全部搜索</li>
+<li>「Ctrl + Shift + `」– 调出终端</li>
+<li>「Alt + 1」– 调出侧边栏</li>
+<li>Show Reformat File Dialog – 设置格式化</li>
+<li>Reformat Code – 格式化代码</li>
+<li>File and Code Templates – 设置新建文件的模板</li>
+<li>Code Style – 设置代码风格</li>
+</ol>
+<h2 id="三、Vim"><a href="#三、Vim" class="headerlink" title="三、Vim"></a>三、Vim</h2><p>Vim 是一个具有很多命令的功能的编辑器。</p>
+<h3 id="1-查看使用教程"><a href="#1-查看使用教程" class="headerlink" title="1. 查看使用教程"></a>1. 查看使用教程</h3><pre><code class="hljs ebnf"><span class="hljs-attribute">vimtutor</span></code></pre>
+
+
+<h3 id="2-退出-Vim"><a href="#2-退出-Vim" class="headerlink" title="2. 退出 Vim"></a>2. 退出 Vim</h3><pre><code class="hljs clojure"><span class="hljs-symbol">:q!</span></code></pre>
+
+
+<p><em>「@浪里淘沙的小法师」</em></p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/04/24/%E5%91%BD%E4%BB%A4%E8%A1%8C/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">命令行</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/04/23/%E9%A1%BA%E6%89%8B%E7%9A%84%E8%BD%AF%E4%BB%B6%E9%85%8D%E7%BD%AE%EF%BC%88%E4%B8%8B%EF%BC%89/">
+                        <span class="hidden-mobile">顺手的软件配置（下）</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "代码编辑器&nbsp;",
+      ],
+      cursorChar: "",
+      typeSpeed: 80,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

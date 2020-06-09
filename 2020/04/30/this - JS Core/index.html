@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/logo.png">
+  <link rel="icon" type="image/png" href="/img/logo.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>this - JS Core - 浪里淘沙的小法师</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>浪里淘沙的小法师</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-04-30 19:00">
+      2020年4月30日 晚上
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      789 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      10
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>this 的相关知识，内容包括函数中的 this、类中的 this、博客参考。</p>
+<h2 id="一、函数中的-this"><a href="#一、函数中的-this" class="headerlink" title="一、函数中的 this"></a>一、函数中的 this</h2><ul>
+<li>this 是什么？一般是实例对象</li>
+<li>怎么用？结合语境灵活运用</li>
+</ul>
+<h3 id="1-普通函数与-this"><a href="#1-普通函数与-this" class="headerlink" title="1. 普通函数与 this"></a>1. 普通函数与 this</h3><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">f</span>(<span class="hljs-params"></span>)</span>&#123;
+	<span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>
+&#125;
+<span class="hljs-keyword">let</span> object = &#123;
+	n:<span class="hljs-number">0</span>
+&#125;
+
+<span class="hljs-built_in">console</span>.dir(f.call())  <span class="hljs-comment">// window ———— Window 的实例</span>
+<span class="hljs-built_in">console</span>.dir(f.call(object))  <span class="hljs-comment">// object ———— Object 的实例</span></code></pre>
+
+
+<p><strong>记住这两条！！！</strong></p>
+<ul>
+<li>函数只是函数，具体 this 是什么，要看传给它的 this 是什么</li>
+<li>当传递的 this 为空时，this 默认指向 window</li>
+</ul>
+<h3 id="2-箭头函数与-this"><a href="#2-箭头函数与-this" class="headerlink" title="2. 箭头函数与 this"></a>2. 箭头函数与 this</h3><ul>
+<li>箭头函数里是没有 this 的，因为它不接受 this 参数，它油盐不进</li>
+</ul>
+<pre><code class="hljs javascript"><span class="hljs-keyword">let</span> object2 = &#123;
+	n:<span class="hljs-number">0</span>,
+  f2:<span class="hljs-function"><span class="hljs-params">()</span>=&gt;</span>&#123;
+  	<span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>
+  &#125;,
+  f3()&#123;
+  	<span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>
+  &#125;
+&#125;
+
+<span class="hljs-built_in">console</span>.log(object2.f2())  <span class="hljs-comment">// window ———— Window 的实例</span>
+<span class="hljs-built_in">console</span>.log(object2.f3())  <span class="hljs-comment">// object2 ———— Object 的实例</span></code></pre>
+
+
+<p><strong>分析：</strong></p>
+<ul>
+<li>在最外部，this 的指向为 window</li>
+<li>object2.f2() 时，object2 传给它新 this，f2() 油盐不进，因此 this 还是指向 window</li>
+<li>object2.f3() 时，object2 传给它新 this，f2() 接受了新 this，此时 this 指向 object2</li>
+</ul>
+<h3 id="3-算清楚-this"><a href="#3-算清楚-this" class="headerlink" title="3. 算清楚 this"></a>3. 算清楚 this</h3><p>this 是跟着函数的“语境”变化的，想要清楚 this 的指向一步一步推，用完整写法 .bind()，把函数传参搞清楚，这样一定能搞定。</p>
+<h3 id="4-箭头函数与-this-配合"><a href="#4-箭头函数与-this-配合" class="headerlink" title="4. 箭头函数与 this 配合"></a>4. 箭头函数与 this 配合</h3><ol>
+<li>()=&gt;{f()}</li>
+<li>f</li>
+</ol>
+<p>方式一和方式二直接或间接调用函数 f，当满足以下条件时，使用方式一更好</p>
+<ul>
+<li>这个函数是给外部调用的</li>
+<li>f 函数里面用到了 this</li>
+</ul>
+<p>原因是当外部函数调用函数时会传入一个 this，如果 f 函数里面有 this，会把里面的旧 this 换成 新 this</p>
+<ul>
+<li>普通函数会接受 this 参数，改变 this 指向</li>
+<li>箭头函数不接受 this 参数，外部函数传给它的 this，它假装没看见</li>
+</ul>
+<h2 id="二、类中的-this"><a href="#二、类中的-this" class="headerlink" title="二、类中的 this"></a>二、类中的 this</h2><h3 id="1-定义一个类"><a href="#1-定义一个类" class="headerlink" title="1. 定义一个类"></a>1. 定义一个类</h3><ul>
+<li>定义类的时候，里面必须要写一个「构造函数」—— constructor</li>
+<li>构造函数中的 this 指向类的「实例」</li>
+<li>我们在构造函数里把属性挂到创建的「实例」上面</li>
+</ul>
+<pre><code class="hljs kotlin"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Reactangle</span></span>&#123;
+  <span class="hljs-keyword">constructor</span>(length,width)&#123;
+    <span class="hljs-keyword">this</span>.length = length
+    <span class="hljs-keyword">this</span>.width = width
+    <span class="hljs-keyword">this</span>.name = <span class="hljs-string">"reactangle"</span>
+  &#125;
+  area()&#123;
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.length*<span class="hljs-keyword">this</span>.width
+  &#125;
+  perimeter()&#123;
+    <span class="hljs-keyword">return</span> (<span class="hljs-keyword">this</span>.length + <span class="hljs-keyword">this</span>.width)*<span class="hljs-number">2</span>
+  &#125;
+&#125;
+
+let reactangle = new Reactangle(<span class="hljs-number">3</span>,<span class="hljs-number">4</span>)
+console.dir(reactangle)</code></pre>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/916537/1588151560837-a696670b-de0c-4e00-af31-5f1f6e270a6f.png#align=left&display=inline&height=183&margin=%5Bobject%20Object%5D&name=image.png&originHeight=187&originWidth=477&size=9523&status=done&style=none&width=467" srcset="/img/loading.gif" alt="image.png"></p>
+<ul>
+<li>new 命令的作用是执行构造函数，并返回一个实例对象</li>
+<li>在构造函数外部的函数就是类的「方法」，它没有挂在实例上</li>
+</ul>
+<h3 id="2-类中的函数"><a href="#2-类中的函数" class="headerlink" title="2. 类中的函数"></a>2. 类中的函数</h3><p>把「方法」挂在实例上也是可以的，把函数写在「构造函数」里</p>
+<pre><code class="hljs kotlin"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Reactangle</span></span>&#123;
+  <span class="hljs-keyword">constructor</span>(length,width)&#123;
+    <span class="hljs-keyword">this</span>.length = length
+    <span class="hljs-keyword">this</span>.width = width
+    <span class="hljs-keyword">this</span>.name = <span class="hljs-string">"reactangle"</span>
+    <span class="hljs-keyword">this</span>.area = ()=&gt;&#123;
+    	<span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.length*<span class="hljs-keyword">this</span>.width
+    &#125;
+    <span class="hljs-keyword">this</span>.perimeter = ()=&gt;&#123;
+    	<span class="hljs-keyword">return</span> (<span class="hljs-keyword">this</span>.length + <span class="hljs-keyword">this</span>.width)*<span class="hljs-number">2</span>
+    &#125;
+  &#125;
+&#125;
+
+let reactangle = new Reactangle(<span class="hljs-number">3</span>,<span class="hljs-number">4</span>)
+console.dir(reactangle)</code></pre>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/916537/1588151678992-32888baa-d4ef-48e2-9524-1001290450e6.png#align=left&display=inline&height=199&margin=%5Bobject%20Object%5D&name=image.png&originHeight=185&originWidth=438&size=8763&status=done&style=none&width=471" srcset="/img/loading.gif" alt="image.png"></p>
+<h3 id="3-另一种函数写法"><a href="#3-另一种函数写法" class="headerlink" title="3. 另一种函数写法"></a>3. 另一种函数写法</h3><p>把函数写到构造函数外部，但是能够把它挂到「实例」上</p>
+<pre><code class="hljs kotlin"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Reactangle</span></span>&#123;
+  <span class="hljs-keyword">constructor</span>(length,width)&#123;
+    <span class="hljs-keyword">this</span>.length = length
+    <span class="hljs-keyword">this</span>.width = width
+    <span class="hljs-keyword">this</span>.name = <span class="hljs-string">"reactangle"</span>
+  &#125;
+	area = ()=&gt;&#123;
+		<span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.length*<span class="hljs-keyword">this</span>.width
+  &#125;
+  perimeter = ()=&gt;&#123;
+    <span class="hljs-keyword">return</span> (<span class="hljs-keyword">this</span>.length + <span class="hljs-keyword">this</span>.width)*<span class="hljs-number">2</span>
+  &#125;
+&#125;
+
+let reactangle = new Reactangle(<span class="hljs-number">3</span>,<span class="hljs-number">4</span>)
+console.dir(reactangle)</code></pre>
+
+
+<h2 id="三、-博客参考"><a href="#三、-博客参考" class="headerlink" title="三、 博客参考"></a>三、 博客参考</h2><p><em>《JavaScript 的 this 原理》—— 阮一峰：</em><a href="https://www.ruanyifeng.com/blog/2018/06/javascript-this.html" target="_blank" rel="noopener"><em>点击这里</em></a><br><em>《this 的值到底是什么》—— 方应杭：</em><a href="https://zhuanlan.zhihu.com/p/23804247" target="_blank" rel="noopener"><em>点击这里</em></a><br>_<br><em>「@浪里淘沙的小法师」</em></p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/04/30/AJAX%20-%20JS%20Core/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">AJAX - JS Core</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/04/30/%E5%8E%9F%E5%9E%8B%20-%20JS%20Core/">
+                        <span class="hidden-mobile">原型 - JS Core</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "this - JS Core&nbsp;",
+      ],
+      cursorChar: "",
+      typeSpeed: 80,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

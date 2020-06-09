@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/logo.png">
+  <link rel="icon" type="image/png" href="/img/logo.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>Vue - 框架 - 浪里淘沙的小法师</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>浪里淘沙的小法师</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-05-04 20:00">
+      2020年5月4日 晚上
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.7k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      37
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>Vue 的相关知识，内容包括简介、创建一个 Vue 项目、Vue 的使用、Vue 实例和选项、Data、DOM、Lifecycle Hooks、Assets、Composition、Misc。</p>
+<h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><p>Vue 是一个用于创建用户界面的开源 JavaScript 框架_<br>_<br><em>中文官网：Vue.js → <a href="https://cn.vuejs.org/index.html" target="_blank" rel="noopener">点击这里</a> _<br>_<br>_中文官网：Vue CLI → <a href="https://cli.vuejs.org/zh/" target="_blank" rel="noopener">点击这里</a></em></p>
+<p>Vue.js 是 Vue 的使用教程，Vue CLI 是 Vue 的命令行工具</p>
+<h3 id="1-简单类比"><a href="#1-简单类比" class="headerlink" title="1. 简单类比"></a>1. 简单类比</h3><blockquote>
+<p>Webpack 就像一个没有装修过的“毛坯房”，提供了一个基本的“房子”，满足遮风挡雨的需求，不能直接满足睡觉、写字等需求。</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>想睡觉，自己添加床</li>
+<li>想写字，自己添加桌子</li>
+</ul>
+</blockquote>
+<p>_<br>如果把 Webpack 比喻成一个没有装修过的“毛坯房”，那么 Vue 就是“中国风”的精装修，床、桌子等已经都帮我们搞定，不用自己添加。</p>
+<ul>
+<li>如果需求不满足，也可以自己在上面增增减减做改动</li>
+<li>因为 Vue 就是基于 Webpack 开发的</li>
+</ul>
+<h2 id="二、创建一个-Vue-项目"><a href="#二、创建一个-Vue-项目" class="headerlink" title="二、创建一个 Vue 项目"></a>二、创建一个 Vue 项目</h2><p>Vue 有两个版本，「完整版」和「不完整版」，「不完整体积」比「完整版体积」小 30% 左右。</p>
+<p>「完整版」多出来的代码是编译相关的，能够编译出我们在 JS 中写的的 HTML 代码。</p>
+<h3 id="1-CDN-引入-Vue"><a href="#1-CDN-引入-Vue" class="headerlink" title="1. CDN 引入 Vue"></a>1. CDN 引入 Vue</h3><p>**</p>
+<ul>
+<li>script 标签引入「Vue完整版」/「Vue不完整版」</li>
+</ul>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">srcipt</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.bootcss.com/vue/2.6.11/vue.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.bootcss.com/vue/2.6.11/vue.runtime.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+
+
+<h3 id="2-使用-Vue-CLI-创建-Vue-项目"><a href="#2-使用-Vue-CLI-创建-Vue-项目" class="headerlink" title="2. 使用 Vue CLI 创建 Vue 项目"></a>2. 使用 Vue CLI 创建 Vue 项目</h3><ul>
+<li>这里默认使用的是「Vue 不完整版」</li>
+<li>通过使用 vue-loader 体验完整版功能</li>
+</ul>
+<pre><code class="hljs properties"><span class="hljs-attr">yarn</span> <span class="hljs-string">global add @vue/cli</span>
+<span class="hljs-attr">vue</span> <span class="hljs-string">create vue-demo-1</span>
+
+<span class="hljs-attr">cd</span> <span class="hljs-string">vue-demo-1</span>
+<span class="hljs-attr">yarn</span> <span class="hljs-string">serve</span></code></pre>
+
+
+<h2 id="三、Vue-的使用"><a href="#三、Vue-的使用" class="headerlink" title="三、Vue 的使用"></a>三、Vue 的使用</h2><p>当使用「不完整版」时，有一个方法办法能够体验「完整版」的功能，就是使用 Webpack 模块化的思想。</p>
+<ul>
+<li>通过使用 vue-loader 引入 vue 文件</li>
+<li>vue-loader 可以把 vue 文件编译成 JS</li>
+</ul>
+<h3 id="1-main-js"><a href="#1-main-js" class="headerlink" title="1. main.js"></a>1. main.js</h3><p>创建一个 Vue 实例，渲染 App.vue 到 id 为 app 的标签</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span>
+<span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">'./App.vue'</span>
+
+Vue.config.productionTip = <span class="hljs-literal">false</span>
+
+<span class="hljs-keyword">new</span> Vue(&#123;
+  render: <span class="hljs-function"><span class="hljs-params">h</span> =&gt;</span> h(App),
+&#125;).$mount(<span class="hljs-string">'#app'</span>)</code></pre>
+
+
+<h3 id="2-App-vue"><a href="#2-App-vue" class="headerlink" title="2. App.vue"></a>2. App.vue</h3><p>三部分内容：template 标签、script 标签、style 标签</p>
+<ul>
+<li>template 标签里面写 HTML，使用 XML 语法</li>
+<li>script 标签里面写 JS</li>
+<li>style 标签里面写 CSS</li>
+</ul>
+<p>App.vue 中</p>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"scss"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre>
+
+
+<h2 id="四、Vue-实例和选项"><a href="#四、Vue-实例和选项" class="headerlink" title="四、Vue 实例和选项"></a>四、Vue 实例和选项</h2><pre><code class="hljs reasonml"><span class="hljs-keyword">let</span> vm = <span class="hljs-keyword">new</span> <span class="hljs-constructor">Vue(<span class="hljs-params">options</span>)</span></code></pre>
+
+
+<ul>
+<li>以上语句创造了一个 Vue 的实例 vm，它接受 options 参数</li>
+<li>vm 封装了对视图的所有操作，包括数据读写、事件绑定、DOM 更新</li>
+<li>options 称之为选项，选项分成六类</li>
+</ul>
+<ol>
+<li>数据：→ <a href="https://cn.vuejs.org/v2/api/#%E9%80%89%E9%A1%B9-%E6%95%B0%E6%8D%AE" target="_blank" rel="noopener"><em>点击这里</em></a></li>
+<li>DOM：→ <a href="https://cn.vuejs.org/v2/api/#%E9%80%89%E9%A1%B9-DOM" target="_blank" rel="noopener"><em>点击这里</em></a></li>
+<li>生命周期钩子：→ <a href="https://cn.vuejs.org/v2/api/#%E9%80%89%E9%A1%B9-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90" target="_blank" rel="noopener"><em>点击这里</em></a></li>
+<li>资源：→ <a href="https://cn.vuejs.org/v2/api/#%E9%80%89%E9%A1%B9-%E8%B5%84%E6%BA%90" target="_blank" rel="noopener"><em>点击这里</em></a></li>
+<li>组合：→ <a href="https://cn.vuejs.org/v2/api/#%E9%80%89%E9%A1%B9-%E7%BB%84%E5%90%88" target="_blank" rel="noopener"><em>点击这里</em></a></li>
+<li>其他：→ <a href="https://cn.vuejs.org/v2/api/#%E9%80%89%E9%A1%B9-%E5%85%B6%E5%AE%83" target="_blank" rel="noopener"><em>点击这里</em></a></li>
+</ol>
+<ul>
+<li>中文、英文对照着看，这岂不是又一个学习英语的好时机<a href="https://emojipedia.org/crossed-fingers/" target="_blank" rel="noopener">🤞</a></li>
+</ul>
+<p>_</p>
+<h2 id="五、Options-Data"><a href="#五、Options-Data" class="headerlink" title="五、Options / Data"></a>五、Options / Data</h2><p>data、props、propsData、computed、metheds、watch</p>
+<h3 id="1-data、methods"><a href="#1-data、methods" class="headerlink" title="1. data、methods"></a>1. data、methods</h3><ul>
+<li>data 支持对象和函数，实例中可以写对象和函数，组件中必须使用函数</li>
+<li>data 使用函数，返回一个对象</li>
+<li>metheds 支持事件处理函数和普通函数</li>
+</ul>
+<p>Vue.vue 中</p>
+<pre><code class="hljs django"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span></span>
+<span class="xml">  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span></span>
+<span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><span class="hljs-template-variable">&#123;&#123;n&#125;&#125;</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+<span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-on:click</span>=<span class="hljs-string">"add()"</span>&gt;</span>+1<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span>
+<span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><span class="hljs-template-variable">&#123;&#123;filter()&#125;&#125;</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+<span class="xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></span>
+
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span></span>
+<span class="xml">export default &#123;</span>
+<span class="xml">  data() &#123;</span>
+<span class="xml">    return &#123;</span>
+<span class="xml">      n: 100,</span>
+<span class="xml">      array: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span>
+<span class="xml">    &#125;;</span>
+<span class="xml">  &#125;,</span>
+<span class="xml">  methods: &#123;</span>
+<span class="xml">    add() &#123;</span>
+<span class="xml">      this.n += 1;</span>
+<span class="xml">    &#125;,</span>
+<span class="xml">    filter() &#123;</span>
+<span class="xml">    	console.log("执行了一次 filter 函数")</span>
+<span class="xml">      return this.array.filter(i =&gt; i % 2 === 0);</span>
+<span class="xml">    &#125;</span>
+<span class="xml">  &#125;,</span>
+<span class="xml">&#125;;</span>
+<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span></code></pre>
+
+
+<h3 id="2-直接、间接获取数据"><a href="#2-直接、间接获取数据" class="headerlink" title="2. 直接、间接获取数据"></a>2. 直接、间接获取数据</h3><ul>
+<li>假设已知 a 的值，现在要获取 a+1 的值</li>
+<li>通过表达式和函数两种方式获取</li>
+</ul>
+<pre><code class="hljs javascript">a = <span class="hljs-number">1</span>
+
+b = a + <span class="hljs-number">1</span>
+c = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<span class="hljs-keyword">return</span> a+<span class="hljs-number">1</span>&#125;
+
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">`b:<span class="hljs-subst">$&#123;b&#125;</span>,c:<span class="hljs-subst">$&#123;c()&#125;</span>`</span>)</code></pre>
+<p>打印结果：b:2,c:2</p>
+<ul>
+<li>表达式方式是及时的，函数方式延迟性的</li>
+<li>函数方式的延迟有个优点，数据之间不会混淆</li>
+</ul>
+<p>假设去修改表达式和函数，现在要获取 a+2 的值，原来的 b、c 复制一份给 b2、c2</p>
+<pre><code class="hljs javascript">b2 = b
+c2 = c
+
+b = a + <span class="hljs-number">2</span>
+c = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<span class="hljs-keyword">return</span> a+<span class="hljs-number">2</span>&#125;
+
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">`b:<span class="hljs-subst">$&#123;b&#125;</span>,c:<span class="hljs-subst">$&#123;c()&#125;</span>`</span>)
+<span class="hljs-comment">// b:3,c:3</span></code></pre>
+<pre><code class="hljs javascript"><span class="hljs-built_in">console</span>.log(<span class="hljs-string">`b2:<span class="hljs-subst">$&#123;b&#125;</span>,c2:<span class="hljs-subst">$&#123;c2()&#125;</span>`</span>)
+<span class="hljs-comment">// b2:3,c2:2</span></code></pre>
+
+
+<p>可以看到，原来复制而来的 b2 变了，c2 没变，这就是函数方式的优点</p>
+<p>其实表达式复制是可以的，复制 a+1 即可，当表达式很复杂呢？复制同样也就很复杂，而函数不同，直接变量赋值搞定</p>
+<h3 id="3-props"><a href="#3-props" class="headerlink" title="3. props"></a>3. props</h3><p>Vue.vue 中</p>
+<pre><code class="hljs xquery"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span></span>
+<span class="xml">	</span><span class="xquery">&#123;&#123;message&#125;</span><span class="xml">&#125;</span>
+<span class="xml">	</span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">"fn"</span>&gt;</span>call fn<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span>
+<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></span>
+
+export <span class="hljs-keyword">default</span> = &#123;
+	prop:[<span class="hljs-string">'message'</span>,<span class="hljs-string">'fn'</span>]
+&#125;</code></pre>
+<pre><code class="hljs 1c">&lt;Vue message=<span class="hljs-string">"Hello"</span>&gt;  <span class="hljs-comment">// 这是传字符串</span>
+
+<span class="hljs-comment">// 如果要传实例上的内容呢？ this.n - 数据、this.add - 函数</span>
+&lt;Vue :message=<span class="hljs-string">"n"</span> :fn=<span class="hljs-string">"add /&gt;</span></code></pre>
+
+
+<h3 id="4-computed"><a href="#4-computed" class="headerlink" title="4. computed"></a>4. computed</h3><ul>
+<li>computed 是计算属性，可以对 data 属性中的值做计算生成一个新的属性</li>
+<li>如果给它一个函数，这个函数默认是 getter</li>
+<li>也可以自己设置 setter，给它一个对象，address: {getter(), setter()}</li>
+</ul>
+<pre><code class="hljs dts"><span class="hljs-params">&lt;template&gt;</span>
+  <span class="hljs-params">&lt;div id="app"&gt;</span>
+    <span class="hljs-params">&lt;div&gt;</span>&#123;&#123;user&#125;&#125;<span class="hljs-params">&lt;/div&gt;</span>
+    <span class="hljs-params">&lt;div&gt;</span>&#123;&#123;address&#125;&#125;<span class="hljs-params">&lt;/div&gt;</span>
+  <span class="hljs-params">&lt;/div&gt;</span>
+<span class="hljs-params">&lt;/template&gt;</span>
+
+export <span class="hljs-class">default </span>&#123;
+  data() &#123;
+    <span class="hljs-class">return </span>&#123;
+<span class="hljs-symbol">      user:</span> &#123;
+<span class="hljs-symbol">        name:</span> <span class="hljs-string">"小白"</span>,
+<span class="hljs-symbol">        cellphone:</span> <span class="hljs-string">"1383838438"</span>,
+<span class="hljs-symbol">        email:</span> <span class="hljs-string">"xiaobai.qq.com"</span>
+      &#125;
+    &#125;;
+  &#125;,
+<span class="hljs-symbol">  computed:</span> &#123;
+    address() &#123;
+      <span class="hljs-class">let </span>&#123;user&#125; = this;
+      return `姓名：$&#123;user.name&#125;，电话：$&#123;user.cellphone&#125;，邮箱：$&#123;user.email&#125;`;
+    &#125;
+  &#125;
+&#125;</code></pre>
+
+
+<p>computed 里面写的是一个方法，在页面中直接把这个方法，它会自动读取这个函数的返回值。</p>
+<h3 id="5-watch"><a href="#5-watch" class="headerlink" title="5. watch"></a>5. watch</h3><ul>
+<li>监听 data 中的数据，当有变化时，执行一个函数</li>
+<li>watch 里面是接收一个函数，传入两个参数，新数据和旧数据</li>
+<li>watch 是异步的</li>
+<li>watch 里面也可以接收一个对象，对象里面两个函数<ul>
+<li>hander()  // 函数内容和上面的一样</li>
+<li>immediate: true  // 意思是第一次渲染的时候也运行一下函数</li>
+</ul>
+</li>
+<li>watch 监听简单数据类型，数据变了就一定变了</li>
+<li>watch 监听对象的地址，当对象内部内容发成变化，watch 无法监听到<ul>
+<li>想要监听对象内部，再添加一个属性</li>
+<li>deep: true</li>
+</ul>
+</li>
+<li>还可以使用全局 API 的方式监听数据，可以把放到生命周期钩子里<ul>
+<li>vm.$watch()</li>
+</ul>
+</li>
+</ul>
+<p><em>watch 完整用法（官方文档）：</em><a href="https://cn.vuejs.org/v2/api/#watch" target="_blank" rel="noopener"><em>点击这里</em></a></p>
+<pre><code class="hljs routeros"><span class="hljs-builtin-name">export</span><span class="hljs-built_in"> default </span>&#123;
+  data() &#123;
+    return &#123;
+      n: 100,
+      array: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    &#125;;
+  &#125;,
+  watch: &#123;
+  	n(newValue,oldValue)&#123;console.log(`<span class="hljs-keyword">from</span> <span class="hljs-variable">$&#123;oldValue&#125;</span> <span class="hljs-keyword">to</span> <span class="hljs-variable">$&#123;newValue&#125;</span>`)&#125;
+  &#125;
+&#125;</code></pre>
+
+
+<h3 id="6-computed-和-watch-的区别"><a href="#6-computed-和-watch-的区别" class="headerlink" title="6. computed 和 watch 的区别"></a>6. computed 和 watch 的区别</h3><p>computed 是计算属性的意思，watch 是监听的意思。</p>
+<p>computed 是用来计算出一个值的，这个值不需要加括号，调用的时候不需要加括号，根据依赖会自动缓存，如果依赖不变，它不会重新计算。</p>
+<p>watch 是如果某个属性变化了，去执行一个函数。它有两个选项，immediate 表示是否要在第一次执行渲染这个函数，deep 意思是监听一个对象，是否要看对象里面的属性的变化。</p>
+<h2 id="六、DOM"><a href="#六、DOM" class="headerlink" title="六、DOM"></a>六、DOM</h2><p>el、template、render、renderError</p>
+<h3 id="1-el"><a href="#1-el" class="headerlink" title="1. el"></a>1. el</h3><ul>
+<li>提供一个在页面上已存在的 DOM 元素作为 Vue 实例的挂载目标</li>
+<li>与 $mount() 有替换关系</li>
+</ul>
+<p>main.js 中</p>
+<pre><code class="hljs arcade"><span class="hljs-comment">// 方式一</span>
+<span class="hljs-keyword">new</span> Vue(&#123;
+  el: <span class="hljs-string">'#app'</span>,
+  render: <span class="hljs-function"><span class="hljs-params">h</span> =&gt;</span> h(App),
+&#125;)
+
+<span class="hljs-comment">// 方式二</span>
+<span class="hljs-keyword">new</span> Vue(&#123;
+  el: <span class="hljs-string">'#app'</span>,
+  render: <span class="hljs-function"><span class="hljs-params">h</span> =&gt;</span> h(App),
+&#125;).<span class="hljs-symbol">$mou</span>nt(<span class="hljs-string">'#app'</span>)</code></pre>
+
+
+<h3 id="2-template"><a href="#2-template" class="headerlink" title="2. template"></a>2. template</h3><p>vue 文件中 template 标签的的一些语法</p>
+<ul>
+<li>使用 XML 语法（不是 HTML）</li>
+<li>使用两个大括号插入表达式</li>
+<li>使用 v-html、v-on、v-bind 等指令操作 DOM</li>
+<li>使用 v-if、v-for 等指令实现条件判断和循环</li>
+</ul>
+<p><strong>展示内容</strong></p>
+<pre><code class="hljs django"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span></span>
+<span class="xml">	</span><span class="hljs-template-variable">&#123;&#123;object.a&#125;&#125;</span>
+<span class="xml">  </span><span class="hljs-template-variable">&#123;&#123;n+1&#125;&#125;</span>
+<span class="xml">  </span><span class="hljs-template-variable">&#123;&#123;fn&#125;&#125;</span>
+<span class="xml">  </span>
+<span class="xml">  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-text</span>=<span class="hljs-string">"表达式"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+<span class="xml">  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-html</span>=<span class="hljs-string">'x'</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+<span class="xml">  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-pre</span>&gt;</span></span><span class="hljs-template-variable">&#123;&#123;n&#125;&#125;</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></span></code></pre>
+
+
+<p><strong>绑定属性</strong></p>
+<pre><code class="hljs dust"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span></span>
+<span class="xml">	<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">v-bind:src</span>=<span class="hljs-string">"x"</span> /&gt;</span></span>
+<span class="xml">  <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">:src</span>=<span class="hljs-string">"y"</span> /&gt;</span></span>
+<span class="xml">  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">:style</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">&#123;border:1px solid red&#125;</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></span></code></pre>
+
+
+<p><strong>绑定事件</strong></p>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-on:click</span>=<span class="hljs-string">"add"</span>&gt;</span>+1<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">"add()"</span>&gt;</span>+1<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">"n+1"</span>&gt;</span>+1<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></code></pre>
+
+
+<p><strong>条件判断</strong></p>
+<pre><code class="hljs gml">&lt;template&gt;
+	&lt;<span class="hljs-keyword">div</span> v-<span class="hljs-keyword">if</span>=<span class="hljs-string">"x&gt;0"</span>&gt;
+  显示 <span class="hljs-symbol">x</span> &gt; <span class="hljs-number">0</span>
+  &lt;/<span class="hljs-keyword">div</span>&gt;
+	&lt;<span class="hljs-keyword">div</span> v-<span class="hljs-keyword">else</span>-<span class="hljs-keyword">if</span>=<span class="hljs-string">"&lt;0"</span>&gt;
+  显示 <span class="hljs-symbol">x</span> = <span class="hljs-number">0</span>
+  &lt;/<span class="hljs-keyword">div</span>&gt;
+	&lt;<span class="hljs-keyword">div</span> v-<span class="hljs-keyword">else</span>&gt;
+  显示 <span class="hljs-symbol">x</span> = <span class="hljs-number">0</span>
+  &lt;/<span class="hljs-keyword">div</span>&gt;
+&lt;/template&gt;</code></pre>
+
+
+<p><strong>循环</strong></p>
+<pre><code class="hljs django"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span></span>
+<span class="xml">	<span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span></span>
+<span class="xml">  <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"(value, name) in obj"</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">"name"</span>&gt;</span></span>
+<span class="xml">    属性名：</span><span class="hljs-template-variable">&#123;&#123;name&#125;&#125;</span><span class="xml">  属性值：</span><span class="hljs-template-variable">&#123;&#123;value&#125;&#125;</span>
+<span class="xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span>
+<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></span>
+<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></span></code></pre>
+
+
+<p>显示和隐藏</p>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-show</span>=<span class="hljs-string">"n%2 === 0"</span>&gt;</span>n 是偶数<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></code></pre>
+<h2 id="七、Lifecycle-Hooks"><a href="#七、Lifecycle-Hooks" class="headerlink" title="七、Lifecycle Hooks"></a>七、Lifecycle Hooks</h2><p>beforeCreate、created、beforeMount、mounted、beforeUpdate、updated、activeated、deactivated、beforeDestroy、destroyed、errorCaptured</p>
+<h3 id="1-created、mounted"><a href="#1-created、mounted" class="headerlink" title="1. created、mounted"></a>1. created、mounted</h3><pre><code class="hljs less"><span class="hljs-selector-tag">created</span>() &#123;
+	<span class="hljs-selector-tag">console</span><span class="hljs-selector-class">.log</span>(<span class="hljs-string">"已创建到内存中"</span>);
+&#125;,
+<span class="hljs-selector-tag">mounted</span>() &#123;
+	<span class="hljs-selector-tag">console</span><span class="hljs-selector-class">.log</span>(<span class="hljs-string">"已挂载到页面中"</span>);
+&#125;</code></pre>
+
+
+<h3 id="2-updated、destroyed"><a href="#2-updated、destroyed" class="headerlink" title="2. updated、destroyed"></a>2. updated、destroyed</h3><pre><code class="hljs stylus">
+<span class="hljs-function"><span class="hljs-title">updated</span><span class="hljs-params">()</span></span>&#123;
+	console.log(<span class="hljs-string">"已更新"</span>)
+&#125;,
+<span class="hljs-function"><span class="hljs-title">destroyed</span><span class="hljs-params">()</span></span>&#123;
+	console.log(<span class="hljs-string">"已消亡"</span>)
+&#125;</code></pre>
+<h2 id="八、Assets"><a href="#八、Assets" class="headerlink" title="八、Assets"></a>八、Assets</h2><p>directives、filters、components</p>
+<h3 id="1-directives"><a href="#1-directives" class="headerlink" title="1. directives"></a>1. directives</h3><p>_官方中文文档：→ <em>[</em>点击这里_](<a href="https://cn.vuejs.org/v2/api/#%E6%8C%87%E4%BB%A4" target="_blank" rel="noopener">https://cn.vuejs.org/v2/api/#%E6%8C%87%E4%BB%A4</a>)</p>
+<ul>
+<li>内置指令： v-text、v-html、v-show、v-if、v-else、v-else-if、v-for、v-on、v-bind</li>
+<li>内置指令：v-model、v-slot、 v-pre、v-cloak、v-once</li>
+<li>Vue 允许使用自定义指令，对普通 DOM 元素进行底层操作，实现代码复用和抽象</li>
+<li>减少 DOM 操作的重复</li>
+</ul>
+<pre><code class="hljs coffeescript"><span class="hljs-regexp">//</span> 全局使用
+Vue.directive(<span class="hljs-string">'greet'</span>,&#123;
+	inserted(el)&#123;
+  	el.addEventListener(<span class="hljs-string">'click'</span>,<span class="hljs-function"><span class="hljs-params">()</span>=&gt;</span><span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Hello'</span>))
+  &#125;
+&#125;)
+
+<span class="hljs-regexp">//</span> 局部使用
+directives: &#123;
+	greet2: &#123;
+  	inserted(el)&#123;
+    	el.addEventListener(<span class="hljs-string">'click'</span>,<span class="hljs-function"><span class="hljs-params">()</span>=&gt;</span><span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Hello2'</span>))
+    &#125;
+  &#125;
+&#125;</code></pre>
+
+
+<p>直接将指令添加到标签上，即可使用该指令</p>
+<pre><code class="hljs gml">&lt;<span class="hljs-keyword">div</span> v-<span class="hljs-symbol">x</span>&gt;Hello&lt;/<span class="hljs-keyword">div</span>&gt;</code></pre>
+
+
+<p><em>详细用法：</em><a href="https://cn.vuejs.org/v2/guide/custom-directive.html#%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0" target="_blank" rel="noopener"><em>点击这里</em></a><br>_</p>
+<h3 id="2-modifer"><a href="#2-modifer" class="headerlink" title="2. modifer"></a>2. modifer</h3><p><em>按键修饰符的文档：</em><a href="https://cn.vuejs.org/v2/guide/events.html#%E6%8C%89%E9%94%AE%E4%BF%AE%E9%A5%B0%E7%AC%A6" target="_blank" rel="noopener"><em>点击这里</em></a></p>
+<ul>
+<li>指令可以加修饰符</li>
+<li><a href="#">@click.stop、@click.prevent、@click.stop.prevent</a></li>
+</ul>
+<h3 id="3-sync-修饰符"><a href="#3-sync-修饰符" class="headerlink" title="3. .sync 修饰符"></a>3. .sync 修饰符</h3><ul>
+<li>一块语法糖</li>
+</ul>
+<p>Vue 的规则中</p>
+<ul>
+<li>组件不能修改 props 外部数据</li>
+<li>this.$emit 可以触发事件并传参</li>
+<li>this.$event 可以获取 $emit 的参数</li>
+</ul>
+<p><em>官方中文文档：</em><a href="https://cn.vuejs.org/v2/guide/components-custom-events.html#sync-%E4%BF%AE%E9%A5%B0%E7%AC%A6" target="_blank" rel="noopener"><em>点击这里</em></a></p>
+<h3 id="3-components"><a href="#3-components" class="headerlink" title="3. components"></a>3. components</h3><p>main.js 中</p>
+<pre><code class="hljs javascript"><span class="hljs-comment">// 引入一个组件，方式一</span>
+<span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">'Vue.vue'</span>
+
+<span class="hljs-comment">// JS 方式做一个组件</span>
+Vue.component(&lt;组件名&gt;,&#123;
+	template:<span class="hljs-string">`&lt;页面内容&gt;`</span>
+&#125;)
+
+
+<span class="hljs-comment">// 使用组件</span>
+<span class="hljs-keyword">new</span> Vue(&#123;
+	components: &#123;
+		&lt;组件名&gt;: &lt;组件&gt;
+    template:<span class="hljs-string">`&lt;组件名&gt;`</span>
+	&#125;
+&#125;)</code></pre>
+
+
+<h2 id="九、Composititon"><a href="#九、Composititon" class="headerlink" title="九、Composititon"></a>九、Composititon</h2><p>parent、mixins、extends、provide、inject</p>
+<h3 id="1-mixins"><a href="#1-mixins" class="headerlink" title="1. mixins"></a>1. mixins</h3><ul>
+<li>减少 data、methods、钩子的重复</li>
+<li>它很聪明，会自动合并</li>
+<li>log 必须是对象</li>
+</ul>
+<h3 id="2-extends"><a href="#2-extends" class="headerlink" title="2. extends"></a>2. extends</h3><ul>
+<li>Vue 继承扩展</li>
+<li>和 mixins 很像</li>
+<li>const vue2 = Vue.extend()</li>
+</ul>
+<h3 id="3-provide-和-inject"><a href="#3-provide-和-inject" class="headerlink" title="3. provide 和 inject"></a>3. provide 和 inject</h3><ul>
+<li>给子代共享数据，并能够修改</li>
+</ul>
+<h2 id="十、Misc"><a href="#十、Misc" class="headerlink" title="十、Misc"></a>十、Misc</h2><p>name、delimiters、functional、model、inheritAttrs、comments</p>
+<p><em>「@浪里淘沙的小法师」</em></p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/05/04/React%20-%20%E6%A1%86%E6%9E%B6/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">React - 框架</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/05/04/Webpack%20-%20%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7/">
+                        <span class="hidden-mobile">Webpack - 打包工具</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Vue - 框架&nbsp;",
+      ],
+      cursorChar: "",
+      typeSpeed: 80,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

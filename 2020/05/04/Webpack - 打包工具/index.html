@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/logo.png">
+  <link rel="icon" type="image/png" href="/img/logo.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>Webpack - 打包工具 - 浪里淘沙的小法师</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>浪里淘沙的小法师</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-05-04 19:00">
+      2020年5月4日 晚上
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.9k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      27
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>Webpack 的相关知识，内容包括简介、安装 Webpack、Webpack 基本配置、Webpack 进阶配置、Webpack 配置汇总、预览。</p>
+<h2 id="一、-简介"><a href="#一、-简介" class="headerlink" title="一、 简介"></a>一、 简介</h2><p>Webpack 是一个模块打包工具</p>
+<p>_官网：→ <em>[</em>点击这里_](<a href="https://webpack.docschina.org/" target="_blank" rel="noopener">https://webpack.docschina.org/</a>)<br>_</p>
+<h3 id="1-简单类比"><a href="#1-简单类比" class="headerlink" title="1. 简单类比"></a>1. 简单类比</h3><p>_<br>Webpack 就像一个没有装修过的“毛坯房”，提供了一个基本的“房子”，满足遮风挡雨的需求，不能直接满足睡觉、写字等需求。</p>
+<ul>
+<li>想睡觉，自己添加床</li>
+<li>想写字，自己添加桌子</li>
+</ul>
+<p>Webpack 内置 babel-loader，能够加载 JS，不能直接加载 HTML、CSS等其他内容。想要有其他需求，通过「loader」和「plugin」做相关配置。</p>
+<ul>
+<li>引入 JS，内置 babel-loader，直接引入</li>
+<li>预览 HTML ，配置 html-webpack-plugin、webpack-dev-server</li>
+<li>引入 CSS，配置 stype-loader、css-loader、mini-css-extract-plugin</li>
+<li>引入 SCSS，配置 sass-loader、data-sass</li>
+<li>引入 LESS，配置 less-loader、less</li>
+<li>引入 Stylus，配置 stylus-loader、stylus</li>
+<li>引入图片，配置 file-loader</li>
+</ul>
+<p>_</p>
+<h2 id="二、安装-Webpack"><a href="#二、安装-Webpack" class="headerlink" title="二、安装 Webpack"></a>二、安装 Webpack</h2><h3 id="1-初始化目录"><a href="#1-初始化目录" class="headerlink" title="1. 初始化目录"></a>1. 初始化目录</h3><p>参数 -y：使用默认初始化</p>
+<pre><code class="hljs coffeescript"><span class="hljs-built_in">npm</span> init -y</code></pre>
+
+
+<h3 id="2-安装两个包"><a href="#2-安装两个包" class="headerlink" title="2. 安装两个包"></a>2. 安装两个包</h3><p>需要安装两个包，webpack 和 webpack-cli，前者是 webpack，后者是 webpack 命令行工具。</p>
+<p>参数 –dev：将包版本添加到 dev 依赖</p>
+<pre><code class="hljs avrasm">yarn <span class="hljs-keyword">add</span> webpack webpack-<span class="hljs-keyword">cli</span> --dev</code></pre>
+
+
+<h3 id="3-三个目录"><a href="#3-三个目录" class="headerlink" title="3. 三个目录"></a>3. 三个目录</h3><p>在本地项目初始化并安装完 Wepack 后，有 3 个目录</p>
+<ol>
+<li><strong>node_modules</strong> 是安装 node 后用来存放用包管理工具下载安装的包的文件夹</li>
+<li>*<em>package.json *</em>包含关于项目的元数据，包括项目名称和说明、程序包版本号和程序所需的依赖列表</li>
+<li>*<em>yarn.lock *</em>存储比 package.json 中的依赖列表的更详细信息</li>
+</ol>
+<p>webpack 命令可以进行对我们做的项目进行打包，它位于 node_modules/.bin/webpack</p>
+<pre><code class="hljs awk"><span class="hljs-regexp">//</span> 以下两种方式均可运行
+.node_modules<span class="hljs-regexp">/.bin/</span>webpack
+npx webpack</code></pre>
+
+
+<h2 id="三、Webpack-基本配置"><a href="#三、Webpack-基本配置" class="headerlink" title="三、Webpack 基本配置"></a>三、Webpack 基本配置</h2><p>当我们直接运行 webpack 命令的时候，会报错，这是无法成功的。</p>
+<p>Webpack 是打包工具，我们当然要提前给 Webpack 设置好打包的规则和打包的内容。</p>
+<p>怎么配置？去官网“复制、粘贴”走起。</p>
+<h3 id="1-创建一个配置文件"><a href="#1-创建一个配置文件" class="headerlink" title="1. 创建一个配置文件"></a>1. 创建一个配置文件</h3><p>在根目录创建 webpack.config.js，里面的代码就是打包规则</p>
+<pre><code class="hljs lua">const <span class="hljs-built_in">path</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">'path'</span>);
+
+module.exports = &#123;
+ 	entry: <span class="hljs-string">'./src/index.js'</span>,
+  <span class="hljs-built_in">output</span>: &#123;
+    filename: <span class="hljs-string">'main.js'</span>,
+    <span class="hljs-built_in">path</span>: <span class="hljs-built_in">path</span>.resolve(__dirname, <span class="hljs-string">'dist'</span>)
+  &#125;
+&#125;;</code></pre>
+
+
+<ul>
+<li>entry：入口</li>
+<li>output：出口<ul>
+<li>filename：文件名</li>
+<li>path：路径</li>
+</ul>
+</li>
+</ul>
+<p>打包时运以下命令，其中 config 参数用于指定打包配置，若不写，则默认 webpack.config.js</p>
+<pre><code class="hljs arduino">npx webpack --<span class="hljs-built_in">config</span> webpack.<span class="hljs-built_in">config</span>.js</code></pre>
+
+
+<h3 id="2-创建一个-src-目录"><a href="#2-创建一个-src-目录" class="headerlink" title="2. 创建一个 src 目录"></a>2. 创建一个 src 目录</h3><p>在根目录创建 src 目录，里面的文件就是打包内容，我们在里面写一个 index.js 吧</p>
+<pre><code class="hljs 1c">console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"Hello"</span>)</code></pre>
+
+
+<h3 id="3-添加一个快捷方式"><a href="#3-添加一个快捷方式" class="headerlink" title="3. 添加一个快捷方式"></a>3. 添加一个快捷方式</h3><p>考虑到用 CLI 这种方式来运行本地的 webpack 并不是特别方便，我们可以设置一个快捷方式来运行</p>
+<pre><code class="hljs 1c"><span class="hljs-string">"scripts"</span>: &#123;
+	<span class="hljs-string">"build"</span>: <span class="hljs-string">"webpack"</span>
+&#125;</code></pre>
+
+
+<h3 id="4-测试一下"><a href="#4-测试一下" class="headerlink" title="4. 测试一下"></a>4. 测试一下</h3><p>运行 webpack 命令，会生成一个 dist 目录，里面就是打包后的文件。</p>
+<pre><code class="hljs ebnf"><span class="hljs-attribute">yarn build</span></code></pre>
+
+
+<h2 id="四、Webpack-进阶配置"><a href="#四、Webpack-进阶配置" class="headerlink" title="四、Webpack 进阶配置"></a>四、Webpack 进阶配置</h2><h3 id="1-mode、hash、build"><a href="#1-mode、hash、build" class="headerlink" title="1. mode、hash、build"></a>1. mode、hash、build</h3><p><strong>设置 mode</strong></p>
+<p>Webpack 开发有两种模式，开发模式和生产模式，它们的区别在于开发模式中生成的 HTML 有注释、有段落，生产模式生成的 HTML 去除了段落和注释，体积更小。</p>
+<ul>
+<li>开发预览时，使用开发模式 mode:  ‘development’</li>
+<li>打包时，使用生产模式 mode: ‘production’</li>
+</ul>
+<pre><code class="hljs java">modules.<span class="hljs-keyword">exports</span> = &#123;
+	mode: <span class="hljs-string">'none'</span> / <span class="hljs-string">'development'</span> / <span class="hljs-string">'production'</span>
+&#125;</code></pre>
+
+
+<p><strong>添加 hash</strong></p>
+<p>对于静态页面，我们都希望浏览器能够进行缓存，那样以后进入页面就可以直接使用缓存资源，这里利用 hash 方式修改文件名，以达到缓存目的。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/916537/1587732917812-b4499070-3a93-4e28-8e6a-f4bc540efdcb.png#align=left&display=inline&height=220&margin=%5Bobject%20Object%5D&name=image.png&originHeight=524&originWidth=1773&size=122936&status=done&style=none&width=746" srcset="/img/loading.gif" alt="image.png"></p>
+<pre><code class="hljs dts">modules.export = &#123;
+<span class="hljs-symbol">	output:</span> &#123;
+<span class="hljs-symbol">  	filename:</span> main.[contentHash].js
+  &#125;
+&#125;</code></pre>
+
+
+<p><strong>配置 build</strong><br>**<br>因为使用了给文件添加了 hash，每次生成新的文件，老的文件需要我们手动删除，所以这里重新配置 build。</p>
+<pre><code class="hljs 1c"><span class="hljs-string">"scripts"</span>:&#123;
+	<span class="hljs-string">"build"</span>: <span class="hljs-string">"rm -rf dist &amp;&amp; webpack"</span>
+&#125;</code></pre>
+
+
+<h3 id="2-引入-JS"><a href="#2-引入-JS" class="headerlink" title="2. 引入 JS"></a>2. 引入 JS</h3><p>Webpack 内置了 babel-loader，所以可以直接引用，无需任何配置。</p>
+<pre><code class="hljs xl"><span class="hljs-keyword">import</span> <span class="hljs-string">"./main.js"</span></code></pre>
+
+
+<p>main.js 中</p>
+<pre><code class="hljs 1c">console.<span class="hljs-built_in">log</span>('Hi')</code></pre>
+
+
+<h3 id="3-引入-HTML"><a href="#3-引入-HTML" class="headerlink" title="3. 引入 HTML"></a>3. 引入 HTML</h3><p><strong>安装 html-webpack-plugin、webpack-dev-server</strong><br>**</p>
+<ul>
+<li>html-webpack-plugin 可以自动生成 HTML</li>
+<li>webpack-dev-server 可以响应式预览 HTML，文件都保存在内存中，使开发变得又快又方便</li>
+</ul>
+<p>**</p>
+<pre><code class="hljs pgsql">yarn <span class="hljs-keyword">add</span> html-webpack-plugin webpack-dev-<span class="hljs-keyword">server</span> <span class="hljs-comment">--dev</span></code></pre>
+
+
+<p><strong>配置 html-webpack-plugin，添加 HTML 模板</strong></p>
+<pre><code class="hljs livescript"><span class="hljs-keyword">const</span> HtmlWebpackPlugin = <span class="hljs-built_in">require</span>(<span class="hljs-string">'html-webpack-plugin'</span>);
+modules.<span class="hljs-keyword">export</span> = &#123;
+	plugins:[
+  	<span class="hljs-keyword">new</span> HtmlWebpackPlugin(&#123;
+    	title: <span class="hljs-string">'Hello'</span>，
+      template: <span class="hljs-string">'./src/assets/index.html'</span>
+    &#125;)
+  ]
+&#125;</code></pre>
+<pre><code class="hljs xml"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"zh-CN"</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">%=</span> <span class="hljs-attr">htmlWebpackPlugin.options.title</span> %&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app1"</span>&gt;</span>Hi<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    div
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+
+
+<p><strong>HTML 预览</strong><br>**<br>直接运行以下命令即可</p>
+<pre><code class="hljs axapta">webpack-dev-<span class="hljs-keyword">server</span></code></pre>
+
+
+<p>干脆直接把它添加到快捷方式里面，那样预览起来方便多了</p>
+<pre><code class="hljs avrasm"><span class="hljs-symbol">scripts:</span>&#123;
+	<span class="hljs-string">"serve"</span>: webpack-dev-server
+&#125;</code></pre>
+
+
+<h3 id="4-引入-CSS"><a href="#4-引入-CSS" class="headerlink" title="4. 引入 CSS"></a>4. 引入 CSS</h3><p>引入 CSS 的方式有两种，一种方式是将 CSS 文件打包成 style 标签添加到 HTML 里，另一种方式是将 CSS 抽离成文件。</p>
+<p><strong>方式一：style 标签的形式</strong></p>
+<ul>
+<li>css-loader 把 CSS 转译成 JS 字符串</li>
+<li>style-loader 把转译后的 CSS 转译成 style 标签添加到 HTML中</li>
+</ul>
+<pre><code class="hljs dockerfile">yarn <span class="hljs-keyword">add</span><span class="bash"> css-loader style-loader --dev</span></code></pre>
+<pre><code class="hljs typescript"><span class="hljs-built_in">module</span>.exports = &#123;
+  <span class="hljs-keyword">module</span>: &#123;
+    rules: [
+      &#123;
+        test: <span class="hljs-regexp">/\.css$/i</span>,
+        use: [<span class="hljs-string">'style-loader'</span>, <span class="hljs-string">'css-loader'</span>],
+      &#125;,
+    ],
+  &#125;,
+&#125;;</code></pre>
+
+
+<p>main.js 中</p>
+<pre><code class="hljs aspectj"><span class="hljs-keyword">import</span> <span class="hljs-string">'./style.css'</span></code></pre>
+
+
+<p>style.css 中</p>
+<pre><code class="hljs css"><span class="hljs-selector-id">#app1</span>&#123;
+    <span class="hljs-attribute">color</span>: red;
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">40px</span>;
+&#125;</code></pre>
+
+
+<p><strong>方式二：抽离成 CSS 文件</strong></p>
+<ul>
+<li>mini-css-extract-plugin 把 CSS 抽离成文件<pre><code class="hljs dockerfile">yarn <span class="hljs-keyword">add</span><span class="bash"> mini-css-extract-plugin --dev</span></code></pre>
+<pre><code class="hljs typescript"><span class="hljs-keyword">const</span> MiniCssExtractPlugin = <span class="hljs-built_in">require</span>(<span class="hljs-string">'mini-css-extract-plugin'</span>);
+
+<span class="hljs-built_in">module</span>.exports = &#123;
+  plugins: [<span class="hljs-keyword">new</span> MiniCssExtractPlugin(&#123;
+  	filename: style.[hashContent].css
+  &#125;)],
+  <span class="hljs-keyword">module</span>: &#123;
+    rules: [
+      &#123;
+        test: <span class="hljs-regexp">/\.css$/i</span>,
+        use: [MiniCssExtractPlugin.loader, <span class="hljs-string">'css-loader'</span>],
+      &#125;,
+    ],
+  &#125;,
+&#125;;</code></pre>
+
+
+</li>
+</ul>
+<p>main.js 中</p>
+<pre><code class="hljs aspectj"><span class="hljs-keyword">import</span> <span class="hljs-string">'./style2.css'</span></code></pre>
+
+
+<p>style2.css 中</p>
+<pre><code class="hljs css"><span class="hljs-selector-id">#app1</span>&#123;
+    <span class="hljs-attribute">background</span>: blue;
+&#125;</code></pre>
+
+
+<p>验证是否成功，运行以下命令，然后查看 dist 目录</p>
+<pre><code class="hljs ebnf"><span class="hljs-attribute">yarn build</span></code></pre>
+
+
+<h3 id="5-引入-SCSS"><a href="#5-引入-SCSS" class="headerlink" title="5. 引入 SCSS"></a>5. 引入 SCSS</h3><p><strong>安装 sass-loader 和 dart-sass</strong><br>**</p>
+<ul>
+<li>sass-loader 依赖于 dart-sass / node-sass，优先使用 dart-sass</li>
+<li>sass-loader 将 SCSS 转译成 CSS</li>
+</ul>
+<pre><code class="hljs dockerfile">yarn <span class="hljs-keyword">add</span><span class="bash"> sass-loader dart-sass --dev</span></code></pre>
+<pre><code class="hljs dts">module.exports = &#123;
+<span class="hljs-symbol">    module:</span> &#123;
+<span class="hljs-symbol">        rules:</span> [
+            &#123;
+<span class="hljs-symbol">                test:</span> /\.scss$/i,
+<span class="hljs-symbol">                use:</span> [
+                    <span class="hljs-string">"style-loader"</span>,
+                    <span class="hljs-string">"css-loader"</span>,
+                    &#123;
+<span class="hljs-symbol">                        loader:</span> <span class="hljs-string">"sass-loader"</span>,
+<span class="hljs-symbol">                        options:</span> &#123;
+<span class="hljs-symbol">                            implementation:</span> require(<span class="hljs-string">"dart-sass"</span>)
+                        &#125;
+                    &#125;
+                ]
+            &#125;
+        ],
+    &#125;,
+&#125;;</code></pre>
+
+
+<p>main.js 中</p>
+<pre><code class="hljs aspectj"><span class="hljs-keyword">import</span> <span class="hljs-string">'style.scss'</span></code></pre>
+
+
+<p>style.scss 中</p>
+<pre><code class="hljs mel">$app2-<span class="hljs-keyword">color</span>:blue;
+
+#app2 &#123;
+    <span class="hljs-keyword">color</span>: $app2-<span class="hljs-keyword">color</span>;
+&#125;</code></pre>
+
+
+<h3 id="6-引入-LESS"><a href="#6-引入-LESS" class="headerlink" title="6. 引入 LESS"></a>6. 引入 LESS</h3><p><strong>安装 less-loader 和 less</strong><br>**</p>
+<pre><code class="hljs cmake">yarn add <span class="hljs-keyword">less</span>-loader <span class="hljs-keyword">less</span> --dev</code></pre>
+<pre><code class="hljs typescript"><span class="hljs-built_in">module</span>.exports = &#123;
+  <span class="hljs-keyword">module</span>: &#123;
+    rules: [
+      &#123;
+        test: <span class="hljs-regexp">/\.less$/</span>,
+        loader: [<span class="hljs-string">'style-loader'</span>, <span class="hljs-string">'css-loader'</span>, <span class="hljs-string">'less-loader'</span>,]
+      &#125;,
+    ],
+  &#125;,
+&#125;;</code></pre>
+
+
+<p>main.js 中</p>
+<pre><code class="hljs aspectj"><span class="hljs-keyword">import</span> <span class="hljs-string">'./style.less'</span></code></pre>
+
+
+<p>style.less 中</p>
+<pre><code class="hljs less"><span class="hljs-variable">@color:</span> red;
+
+<span class="hljs-selector-id">#app2</span>&#123;
+    <span class="hljs-attribute">background</span>: <span class="hljs-variable">@color</span>;
+&#125;</code></pre>
+
+
+<h3 id="7-引入-Stylus"><a href="#7-引入-Stylus" class="headerlink" title="7. 引入 Stylus"></a>7. 引入 Stylus</h3><p><strong>安装 stylus-loader 和 stylus</strong><br>**</p>
+<pre><code class="hljs dockerfile">yarn <span class="hljs-keyword">add</span><span class="bash"> stylus-loader stylus --dev</span></code></pre>
+<pre><code class="hljs typescript"><span class="hljs-built_in">module</span>.exports = &#123;
+  <span class="hljs-keyword">module</span>: &#123;
+    rules: [
+      &#123;
+        test: <span class="hljs-regexp">/\.less$/</span>,
+        loader: [<span class="hljs-string">'style-loader'</span>, <span class="hljs-string">'css-loader'</span>, <span class="hljs-string">'stylus-loader'</span>,]
+      &#125;,
+    ],
+  &#125;,
+&#125;;</code></pre>
+
+
+<p>main.js 中</p>
+<pre><code class="hljs aspectj"><span class="hljs-keyword">import</span> <span class="hljs-string">'./style.styl'</span></code></pre>
+
+
+<p>style.styl 中</p>
+<pre><code class="hljs hsp">f = <span class="hljs-number">40</span>px<span class="hljs-comment">;</span>
+
+<span class="hljs-meta">#app2&#123;</span>
+    <span class="hljs-keyword">font</span>-size: f
+&#125;</code></pre>
+
+
+<h3 id="8-引入-图片"><a href="#8-引入-图片" class="headerlink" title="8. 引入 图片"></a>8. 引入 图片</h3><p><strong>安装 file-loader</strong><br>**</p>
+<ul>
+<li>file-loader 的作用是把文件转换成文件路径</li>
+</ul>
+<pre><code class="hljs livecodeserver">yarn <span class="hljs-built_in">add</span> <span class="hljs-built_in">file</span>-loader <span class="hljs-comment">--dev</span></code></pre>
+<pre><code class="hljs openscad"><span class="hljs-function"><span class="hljs-keyword">module</span>.<span class="hljs-title">exports</span> =</span> &#123;
+  <span class="hljs-function"><span class="hljs-keyword">module</span>: &#123;</span>
+    rules: [
+      &#123;
+        test: /\.(png|svg|jpg|gif)$/,
+        <span class="hljs-keyword">use</span>: ['file-loader',],
+      &#125;,
+    ],
+  &#125;,
+&#125;;</code></pre>
+
+
+<p>assets 目录放入一张图片</p>
+<pre><code class="hljs awk">src<span class="hljs-regexp">/assets/</span>dog.jpg</code></pre>
+
+
+<p>main.js 中</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">import</span> jpg <span class="hljs-keyword">from</span> <span class="hljs-string">'./assets/dog.jpg'</span>
+
+<span class="hljs-keyword">let</span> div = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'#app3'</span>)
+div.innerHTML = <span class="hljs-string">`</span>
+<span class="hljs-string">    &lt;img src="<span class="hljs-subst">$&#123;jpg&#125;</span>"&gt;</span>
+<span class="hljs-string">`</span></code></pre>
+
+
+<h3 id="9-掉坑操作"><a href="#9-掉坑操作" class="headerlink" title="9. 掉坑操作"></a>9. 掉坑操作</h3><ul>
+<li><strong>掉坑 1：</strong>引入 HTML 时，总是出错，我在 ‘&lt;’ 和 ‘%’ 之间加了空格</li>
+<li><strong>启示 1：</strong>代码复制粘贴要一模一样，不要多空格，不要少空格<pre><code class="hljs mel">&lt;%= htmlWebpackPlugin.options.title %&gt;</code></pre>
+
+
+</li>
+</ul>
+<ul>
+<li><strong>掉坑 2：</strong>引入 CSS 时，总是出错，重启 serve 就好了</li>
+<li><strong>启示 2：</strong>安装新 loader 后，出错了重启一下 serve 再看看结果</li>
+</ul>
+<ul>
+<li><strong>掉坑 3：</strong>配置 dart-sass，总是出错，报错说没有安装 node-sass，把 dart-sass 卸载再重装又好了</li>
+<li><strong>启示 3：</strong>如果出现莫名错误，把包卸载重装试试</li>
+</ul>
+<h2 id="五、Webpack-配置汇总"><a href="#五、Webpack-配置汇总" class="headerlink" title="五、Webpack 配置汇总"></a>五、Webpack 配置汇总</h2><h3 id="1-package-json"><a href="#1-package-json" class="headerlink" title="1. package.json"></a>1. package.json</h3><p><a href="https://github.com/mcx2020/webpack-demo-1/blob/master/package.json" target="_blank" rel="noopener">https://github.com/mcx2020/webpack-demo-1/blob/master/package.json</a></p>
+<h3 id="2-webpack-config-js"><a href="#2-webpack-config-js" class="headerlink" title="2. webpack.config.js"></a>2. webpack.config.js</h3><p><a href="https://github.com/mcx2020/webpack-demo-1/blob/master/webpack.config.js" target="_blank" rel="noopener">https://github.com/mcx2020/webpack-demo-1/blob/master/webpack.config.js</a></p>
+<h3 id="3-src-目录"><a href="#3-src-目录" class="headerlink" title="3. src 目录"></a>3. src 目录</h3><p><a href="https://github.com/mcx2020/webpack-demo-1/tree/master/src" target="_blank" rel="noopener">https://github.com/mcx2020/webpack-demo-1/tree/master/src</a></p>
+<h3 id="4-src-assets-目录"><a href="#4-src-assets-目录" class="headerlink" title="4. src/assets 目录"></a>4. src/assets 目录</h3><p><a href="https://github.com/mcx2020/webpack-demo-1/tree/master/src/assets" target="_blank" rel="noopener">https://github.com/mcx2020/webpack-demo-1/tree/master/src/assets</a></p>
+<h2 id="六、预览"><a href="#六、预览" class="headerlink" title="六、预览"></a>六、预览</h2><p><a href="https://machaoxue.xyz/webpack-demo-1/dist/" target="_blank" rel="noopener">https://mcx2020.github.io/webpack-demo-1/dist/</a></p>
+<p><em>「@浪里淘沙的小法师」</em></p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/05/04/Vue%20-%20%E6%A1%86%E6%9E%B6/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Vue - 框架</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/05/04/MVC%20-%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                        <span class="hidden-mobile">MVC - 设计模式</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Webpack - 打包工具&nbsp;",
+      ],
+      cursorChar: "",
+      typeSpeed: 80,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

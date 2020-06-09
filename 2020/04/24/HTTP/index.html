@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/logo.png">
+  <link rel="icon" type="image/png" href="/img/logo.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>HTTP - 浪里淘沙的小法师</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>浪里淘沙的小法师</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-04-24 20:00">
+      2020年4月24日 晚上
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.7k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      25
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>HTTP 的相关知识，内容包括 URL、IP、域名、端口页面请求、HTTP 请求和响应、Curl 命令制造请求、HTTP 缓存、其他知识。</p>
+<h2 id="一、URL"><a href="#一、URL" class="headerlink" title="一、URL"></a>一、URL</h2><p>什么是 URL ？URL 的全称是 Uniform Resource Locator， 统一资源定位服务，能够定位到一个设备给我们提供的服务，由以下几个部分组成。</p>
+<p>协议 + 域名或 IP + 端口号 + 路径 + 查询字符串 + 锚点</p>
+<h2 id="二、IP、域名、端口"><a href="#二、IP、域名、端口" class="headerlink" title="二、IP、域名、端口"></a>二、IP、域名、端口</h2><h3 id="1-IP-和域名"><a href="#1-IP-和域名" class="headerlink" title="1. IP 和域名"></a>1. IP 和域名</h3><p>什么是 IP ？IP 全称 Internet Protocol，互联网协议。只要在互联网中，就至少有一个独特的 IP。</p>
+<p>域名是对 IP 的别称，通过 DNS，Domain Name Server/System 将域名和 IP 对应起来。</p>
+<ol>
+<li>一个域名可以对应不同 IP，这个叫均衡负载，防止一台机器扛不住</li>
+<li>一个 IP 可以对应不同域名，这个叫做共享主机</li>
+</ol>
+<h3 id="2-IP-分为内网和外网"><a href="#2-IP-分为内网和外网" class="headerlink" title="2. IP 分为内网和外网"></a>2. IP 分为内网和外网</h3><ol>
+<li>路由器连上电信的服务器，那么路由器就会有一个「外网 IP」</li>
+<li>路由器会在家中创建一个内网，内网中的设备使用「内网 IP」，一般来说这个 IP 的格式都是 192.168.xxx.xxx</li>
+</ol>
+<h3 id="3-获取-查询-IP"><a href="#3-获取-查询-IP" class="headerlink" title="3. 获取/查询 IP"></a>3. 获取/查询 IP</h3><p>这个网站可以获取到自己现在上网的「外网 IP」→ <a href="https://ip138.com/" target="_blank" rel="noopener"><em>https://ip138.com/</em></a><br>_<br>ping 命令用于测试网络是否连通</p>
+<pre><code class="hljs autoit"><span class="hljs-built_in">ping</span> baidu.com</code></pre>
+
+
+<p>nslookup 命令用于查询 DNS 的记录，查看域名解析是否正常</p>
+<pre><code class="hljs css"><span class="hljs-selector-tag">nslookup</span> <span class="hljs-selector-tag">baidu</span><span class="hljs-selector-class">.com</span></code></pre>
+
+
+<h3 id="4-端口"><a href="#4-端口" class="headerlink" title="4. 端口"></a>4. 端口</h3><p>一台机器可以提供很多服务，一个服务就是一个端口，拥有一个端口号（port）。</p>
+<ol>
+<li>要提供 HTTP 服务最好使用 80 端口</li>
+<li>要提供 HTTPS 服务最好使用 443 端口</li>
+<li>要提供 FTP 服务最好使用 21 端口</li>
+</ol>
+<p>一共 65535 个端口，1 到 1023（2 的 10 次方减 1）号端口留给系统使用的，其他端口可以留给普通用户使用</p>
+<h2 id="三、页面请求"><a href="#三、页面请求" class="headerlink" title="三、页面请求"></a>三、页面请求</h2><p>协议 + 域名 + 路径 + 查询参数</p>
+<pre><code class="hljs vim">http<span class="hljs-variable">s:</span>//www.baidu.<span class="hljs-keyword">com</span>/s?wd=hello
+http<span class="hljs-variable">s:</span>//www.google.<span class="hljs-keyword">com</span>/<span class="hljs-built_in">search</span>?q=hello</code></pre>
+<p>协议 + 域名 + 路径 + 锚点</p>
+<pre><code class="hljs avrasm"><span class="hljs-symbol">https:</span>//<span class="hljs-built_in">zh</span>.wikipedia<span class="hljs-meta">.org</span>/wiki/维基百科<span class="hljs-meta">#使用</span></code></pre>
+<p>锚点看起来有中文，实际不支持中文，并且锚点是无法在 Network 面板看到的，它不会传给服务器。</p>
+<h2 id="四、HTTP-请求和响应"><a href="#四、HTTP-请求和响应" class="headerlink" title="四、HTTP 请求和响应"></a>四、HTTP 请求和响应</h2><h3 id="1-HTTP-请求"><a href="#1-HTTP-请求" class="headerlink" title="1. HTTP 请求"></a>1. HTTP 请求</h3><p>有三部分：请求行、请求头、请求体。</p>
+<p>请求动词有 GET / POST / PUT / PATCH / DELETE 等，请求体在 GET 请求中一般为空。</p>
+<pre><code class="hljs groovy">请求动词 路径加查询参数 协议名/版本
+......
+<span class="hljs-string">Host:</span> 域名或 <span class="hljs-string">IP:</span> 端口号
+<span class="hljs-string">Accept:</span> text/html
+Content - <span class="hljs-string">Type:</span> 请求体的格式
+
+请求体（也就是上传的内容）</code></pre>
+
+
+<h3 id="2-HTTP-响应"><a href="#2-HTTP-响应" class="headerlink" title="2. HTTP 响应"></a>2. HTTP 响应</h3><p>有三部分：状态行、响应头、响应体。</p>
+<pre><code class="hljs routeros">协议名/版本 状态码 状态字符串
+<span class="hljs-built_in">..</span><span class="hljs-built_in">..</span><span class="hljs-built_in">..</span>
+Content-Type: 响应体格式
+
+响应体（也就是下载内容）</code></pre>
+
+
+<h2 id="五、Curl-命令构造请求"><a href="#五、Curl-命令构造请求" class="headerlink" title="五、Curl 命令构造请求"></a>五、Curl 命令构造请求</h2><h3 id="1-构造一个简单的请求"><a href="#1-构造一个简单的请求" class="headerlink" title="1. 构造一个简单的请求"></a>1. 构造一个简单的请求</h3><p>-v 参数可以清晰地看到请求和响应</p>
+<pre><code class="hljs groovy">curl <span class="hljs-string">http:</span><span class="hljs-comment">//www.baidu.com</span>
+curl -v <span class="hljs-string">http:</span><span class="hljs-comment">//www.baidu.com</span></code></pre>
+
+
+<p>我们请求 <a href="http://www.baidu.com" target="_blank" rel="noopener">http://www.baidu.com</a> 看看得到什么</p>
+<pre><code class="hljs django"><span class="xml">λ curl -v http://www.baidu.com</span>
+<span class="xml">*   Trying 36.152.44.96:80...</span>
+<span class="xml">* TCP_NODELAY set</span>
+<span class="xml">* Connected to www.baidu.com (36.152.44.96) port 80 (#0)</span>
+<span class="xml">&gt; GET / HTTP/1.1</span>
+<span class="xml">&gt; Host: www.baidu.com</span>
+<span class="xml">&gt; User-Agent: curl/7.67.0</span>
+<span class="xml">&gt; Accept: */*</span>
+<span class="xml">&gt;</span>
+<span class="xml">* Mark bundle as not supporting multiuse</span>
+<span class="xml"><span class="hljs-tag">&lt; <span class="hljs-attr">HTTP</span>/<span class="hljs-attr">1.1</span> <span class="hljs-attr">200</span> <span class="hljs-attr">OK</span></span></span>
+<span class="xml"><span class="hljs-tag">&lt; <span class="hljs-attr">Accept-Ranges:</span> <span class="hljs-attr">bytes</span></span></span>
+<span class="xml"><span class="hljs-tag">&lt; <span class="hljs-attr">Cache-Control:</span> <span class="hljs-attr">private</span>, <span class="hljs-attr">no-cache</span>, <span class="hljs-attr">no-store</span>, <span class="hljs-attr">proxy-revalidate</span>, <span class="hljs-attr">no-transform</span></span></span>
+<span class="xml"><span class="hljs-tag">&lt; <span class="hljs-attr">Connection:</span> <span class="hljs-attr">keep-alive</span></span></span>
+<span class="xml"><span class="hljs-tag">&lt; <span class="hljs-attr">Content-Length:</span> <span class="hljs-attr">2381</span></span></span>
+<span class="xml"><span class="hljs-tag">&lt; <span class="hljs-attr">Content-Type:</span> <span class="hljs-attr">text</span>/<span class="hljs-attr">html</span></span></span>
+<span class="xml"><span class="hljs-tag">&lt; <span class="hljs-attr">Date:</span> <span class="hljs-attr">Fri</span>, <span class="hljs-attr">17</span> <span class="hljs-attr">Apr</span> <span class="hljs-attr">2020</span> <span class="hljs-attr">10:23:27</span> <span class="hljs-attr">GMT</span></span></span>
+<span class="xml"><span class="hljs-tag">&lt; <span class="hljs-attr">Etag:</span> "<span class="hljs-attr">588604f8-94d</span>"</span></span>
+<span class="xml"><span class="hljs-tag">&lt; <span class="hljs-attr">Last-Modified:</span> <span class="hljs-attr">Mon</span>, <span class="hljs-attr">23</span> <span class="hljs-attr">Jan</span> <span class="hljs-attr">2017</span> <span class="hljs-attr">13:28:24</span> <span class="hljs-attr">GMT</span></span></span>
+<span class="xml"><span class="hljs-tag">&lt; <span class="hljs-attr">Pragma:</span> <span class="hljs-attr">no-cache</span></span></span>
+<span class="xml"><span class="hljs-tag">&lt; <span class="hljs-attr">Server:</span> <span class="hljs-attr">bfe</span>/<span class="hljs-attr">1.0.8.18</span></span></span>
+<span class="xml"><span class="hljs-tag">&lt; <span class="hljs-attr">Set-Cookie:</span> <span class="hljs-attr">BDORZ</span>=<span class="hljs-string">27315;</span> <span class="hljs-attr">max-age</span>=<span class="hljs-string">86400;</span> <span class="hljs-attr">domain</span>=<span class="hljs-string">.baidu.com;</span> <span class="hljs-attr">path</span>=<span class="hljs-string">/</span></span></span>
+<span class="xml"><span class="hljs-tag">&lt;</span></span>
+<span class="xml"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span></span>
+<span class="xml"><span class="hljs-comment">&lt;!--STATUS OK--&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">content-type</span> <span class="hljs-attr">content</span>=<span class="hljs-string">text/html;charset</span>=<span class="hljs-string">utf-8</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">X-UA-Compatible</span> <span class="hljs-attr">content</span>=<span class="hljs-string">IE</span>=<span class="hljs-string">Edge</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">content</span>=<span class="hljs-string">always</span> <span class="hljs-attr">name</span>=<span class="hljs-string">referrer</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">stylesheet</span> <span class="hljs-attr">type</span>=<span class="hljs-string">text/css</span> <span class="hljs-attr">href</span>=<span class="hljs-string">http://s1.bdstatic.com/r/www/cache/bdorz/baidu.min.css</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>百度一下，你就知道<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">bo</span></span></span>
+<span class="xml">dy link=#0000cc&gt; <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">wrapper</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">head</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">head_wrapper</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">s_form</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">s_form_wrapper</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">lg</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">hidefocus</span>=<span class="hljs-string">true</span> <span class="hljs-attr">src</span>=<span class="hljs-string">//www.baidu.com/img/bd_logo1.png</span> <span class="hljs-attr">width</span>=<span class="hljs-string">270</span> <span class="hljs-attr">height</span>=<span class="hljs-string">129</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">id</span>=<span class="hljs-string">form</span> <span class="hljs-attr">name</span>=<span class="hljs-string">f</span> <span class="hljs-attr">action</span>=<span class="hljs-string">//www.baidu.com/s</span> <span class="hljs-attr">class</span>=<span class="hljs-string">fm</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">hidden</span> <span class="hljs-attr">name</span>=<span class="hljs-string">bdorz_come</span> <span class="hljs-attr">value</span>=<span class="hljs-string">1</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">hidden</span> <span class="hljs-attr">name</span>=<span class="hljs-string">ie</span> <span class="hljs-attr">value</span>=<span class="hljs-string">utf-8</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">hidden</span> <span class="hljs-attr">name</span>=<span class="hljs-string">f</span> <span class="hljs-attr">value</span>=<span class="hljs-string">8</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">hidden</span> <span class="hljs-attr">name</span>=<span class="hljs-string">rsv_bp</span> <span class="hljs-attr">value</span>=<span class="hljs-string">1</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">hidden</span> <span class="hljs-attr">name</span>=<span class="hljs-string">rsv_idx</span> <span class="hljs-attr">value</span>=<span class="hljs-string">1</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">hidden</span> <span class="hljs-attr">name</span>=<span class="hljs-string">tn</span> <span class="hljs-attr">value</span>=<span class="hljs-string">baidu</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"bg s_ipt_wr"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">kw</span> <span class="hljs-attr">name</span>=<span class="hljs-string">wd</span> <span class="hljs-attr">class</span>=<span class="hljs-string">s_ipt</span> <span class="hljs-attr">value</span> <span class="hljs-attr">maxlength</span>=<span class="hljs-string">255</span> <span class="hljs-attr">autocomplete</span>=<span class="hljs-string">off</span> <span class="hljs-attr">autofocus</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"bg s_btn_wr"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">submit</span> <span class="hljs-attr">id</span>=<span class="hljs-string">su</span> <span class="hljs-attr">value</span>=<span class="hljs-string">百度一下</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"bg s_btn"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">u1</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">http://news.baidu.com</span> <span class="hljs-attr">name</span>=</span></span>
+<span class="xml">tj_trnews class=mnav&gt;新闻<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">http://www.hao123.com</span> <span class="hljs-attr">name</span>=<span class="hljs-string">tj_trhao123</span> <span class="hljs-attr">class</span>=<span class="hljs-string">mnav</span>&gt;</span>hao123<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">http://map.baidu.com</span> <span class="hljs-attr">name</span>=<span class="hljs-string">tj_trmap</span> <span class="hljs-attr">class</span>=<span class="hljs-string">mnav</span>&gt;</span>地图</span>
+<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">http://v.baidu.com</span> <span class="hljs-attr">name</span>=<span class="hljs-string">tj_trvideo</span> <span class="hljs-attr">class</span>=<span class="hljs-string">mnav</span>&gt;</span>视频<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">http://tieba.baidu.com</span> <span class="hljs-attr">name</span>=<span class="hljs-string">tj_trtieba</span> <span class="hljs-attr">class</span>=<span class="hljs-string">mnav</span>&gt;</span>贴吧<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">noscript</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">htt</span></span></span>
+<span class="xml">p://www.baidu.com/bdorz/login.gif?login<span class="hljs-symbol">&amp;amp;</span>tpl=mn<span class="hljs-symbol">&amp;amp;</span>u=http%3A%2F%2Fwww.baidu.com%2f%3fbdorz_come%3d1 name=tj_login class=lb&gt;登录<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">noscript</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>d</span>
+<span class="xml">ocument.write('<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://www.baidu.com/bdorz/login.gif?login&amp;tpl=mn&amp;u='+ encodeURIComponent(window.location.href+ (window.location.search === "</span>" ? "?" <span class="hljs-attr">:</span> "&amp;")+ "<span class="hljs-attr">bdorz_come</span>=<span class="hljs-string">1</span>")+ '" <span class="hljs-attr">name</span>=<span class="hljs-string">"tj_login"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lb"</span>&gt;</span>登录<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>');<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">//www.baidu.com/more/</span> <span class="hljs-attr">name</span>=<span class="hljs-string">tj_briicon</span> <span class="hljs-attr">class</span>=<span class="hljs-string">bri</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"display: block;"</span>&gt;</span></span>
+<span class="xml">更多产品<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">ftCon</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">ftConw</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">lh</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">http://home.baidu.com</span>&gt;</span>关于百度<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">http://ir.baidu.com</span>&gt;</span>About Baidu</span>
+<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">cp</span>&gt;</span><span class="hljs-symbol">&amp;copy;</span>2017<span class="hljs-symbol">&amp;nbsp;</span>Baidu<span class="hljs-symbol">&amp;nbsp;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">http://www.baidu.com/duty/</span>&gt;</span>使用百度前必读<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-symbol">&amp;nbsp;</span> <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">http://jianyi.baidu.com/</span> <span class="hljs-attr">class</span>=<span class="hljs-string">cp-feedback</span>&gt;</span></span>
+<span class="xml">意见反馈<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-symbol">&amp;nbsp;</span>京ICP证030173号<span class="hljs-symbol">&amp;nbsp;</span> <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">//www.baidu.com/img/gs.gif</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></span>
+<span class="xml">* Connection #0 to host www.baidu.com left intact</span></code></pre>
+
+
+<h3 id="2-设置请求"><a href="#2-设置请求" class="headerlink" title="2. 设置请求"></a>2. 设置请求</h3><p>修改请求动词</p>
+<pre><code class="hljs groovy">curl -v -X POST <span class="hljs-string">https:</span><span class="hljs-comment">//www.baidu.com</span></code></pre>
+
+
+<p>设置路径和查询参数</p>
+<pre><code class="hljs groovy">curl -v <span class="hljs-string">https:</span><span class="hljs-comment">//www.baidu.com/s?wd=hello</span></code></pre>
+
+
+<p>设置请求头</p>
+<pre><code class="hljs groovy">curl -v -H <span class="hljs-string">"Accept: text/html"</span> <span class="hljs-string">https:</span><span class="hljs-comment">//www.baidu.com</span></code></pre>
+
+
+<p>设置请求体内容</p>
+<pre><code class="hljs groovy">curl -v -X POST -H <span class="hljs-string">"Content-Type: text/plain;charset=utf-8"</span> -d <span class="hljs-string">"请求体内容"</span> <span class="hljs-string">https:</span><span class="hljs-comment">//www.baidu.com</span></code></pre>
+
+
+<h2 id="六、HTTP-缓存"><a href="#六、HTTP-缓存" class="headerlink" title="六、HTTP 缓存"></a>六、HTTP 缓存</h2><p>缓存是跟着文件名走的，在响应头里可以看到缓存时间</p>
+<pre><code class="hljs lasso">Response <span class="hljs-keyword">Header</span>
+<span class="hljs-keyword">Cache</span><span class="hljs-params">-Control</span>:<span class="hljs-keyword">public</span>, <span class="hljs-keyword">max</span><span class="hljs-params">-age</span>=<span class="hljs-number">31536000</span></code></pre>
+
+
+<h2 id="七、其他知识"><a href="#七、其他知识" class="headerlink" title="七、其他知识"></a>七、其他知识</h2><p>浏览器标签最右侧的圈圈：逆时针转表示在请求，顺时针转表示在下载</p>
+<p><em>「@浪里淘沙的小法师」</em></p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/04/25/%E5%9F%9F%E5%90%8D%E5%92%8C%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">域名和服务器</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/04/24/Git%20%E5%91%BD%E4%BB%A4/">
+                        <span class="hidden-mobile">Git 命令</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "HTTP&nbsp;",
+      ],
+      cursorChar: "",
+      typeSpeed: 80,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

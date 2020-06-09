@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/logo.png">
+  <link rel="icon" type="image/png" href="/img/logo.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>命令行 - 浪里淘沙的小法师</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>浪里淘沙的小法师</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-04-24 18:00">
+      2020年4月24日 晚上
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      18
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <h1 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h1><p>命令行的相关知识，内容包括概念理解、环境变量、添加新命令、JS 相关命令、Python 相关命令。</p>
+<h2 id="一、概念理解"><a href="#一、概念理解" class="headerlink" title="一、概念理解"></a>一、概念理解</h2><h3 id="1-shell-是什么？"><a href="#1-shell-是什么？" class="headerlink" title="1. shell 是什么？"></a>1. shell 是什么？</h3><p>shell 是用来解决用户如何与操作系统通信的问题。shell 是壳，提供给用户使用界面，区别于 kernel（系统内核）</p>
+<p>shell 负责和用户打交道，kernel 负责和硬件打交道</p>
+<p>我正在使用的 Windows 10 操作系统的 kernel 是 Windows NT（Windows 9X 系列的核是 DOS），shell 有两个，分别是 Windows Explorer 和 cmd.exe</p>
+<p><strong>两种形式的 shell</strong></p>
+<ol>
+<li>图形界面 shell（Graphical User Interface shell ，即 GUI shell）</li>
+<li>命令行 shell（Command Line Interface shell ，即CLI shell）</li>
+</ol>
+<p>如果不特别说明，通常所说的 shell 是指命令行 shell</p>
+<ul>
+<li>Linux 中 Bash 是 shell 的一种，最常用的 shell 之一</li>
+<li>Windows 中的 Windows命令提示符（cmd.exe）也是一种 shell</li>
+</ul>
+<h3 id="2-Git-是什么？"><a href="#2-Git-是什么？" class="headerlink" title="2. Git 是什么？"></a>2. Git 是什么？</h3><p>Git 是一款免费、开源的分布式版本控制系统</p>
+<p>Github 是用 Git 做版本控制的代码托管平台</p>
+<p>Git 命令在 Linux 下可以直接运行</p>
+<p>Git Bash 是Git 公司推出的一个 Bash</p>
+<h3 id="3-不同系统下使用-git-命令"><a href="#3-不同系统下使用-git-命令" class="headerlink" title="3. 不同系统下使用 git 命令"></a>3. 不同系统下使用 git 命令</h3><p><strong>Windows 系统：</strong> 需要重新下载一个 Git Bash，不使用 Windows 自带的 Shell</p>
+<ul>
+<li>Cmder 是个不错的命令行控制台工具，附带了 Git Bash，即拥有了 git 命令</li>
+</ul>
+<p><strong>Linux 系统：</strong> 可以直接使用 git 命令</p>
+<p><strong>Mac 系统：</strong> 可以直接使用 git 命令</p>
+<h2 id="二、环境变量"><a href="#二、环境变量" class="headerlink" title="二、环境变量"></a>二、环境变量</h2><p>当一个可执行文件添加到了环境变量 PATH，那么它就可以在命令行里调用并使用，PATH 就是用来搜索程序在哪里的</p>
+<p>「系统」→「高级系统设置」→「环境变量」→「PATH: 可执行文件目录」</p>
+<p>Cmder 下的 Bash 比 Windows 命令提示符功能更强大，语法也不一样，以后直接使用 Cmder 下的 Bash</p>
+<h2 id="三、常用命令"><a href="#三、常用命令" class="headerlink" title="三、常用命令"></a>三、常用命令</h2><h3 id="1-增"><a href="#1-增" class="headerlink" title="1. 增"></a>1. 增</h3><ol>
+<li>创建一个文件</li>
+<li>创建多个文件 「touch 1.txt 2.txt 3.txt」</li>
+<li>添加一行内容到文件（会覆盖） 「echo mmp &gt; 1.txt」</li>
+<li>追加一行内容到文件（不会覆盖） 「echo mmp &gt;&gt; 1.txt」</li>
+<li>追加两行内容到文件 「echo -e “mmp\nmmp” &gt;&gt; 1.txt」</li>
+<li>创建一个目录 「mkdir a」</li>
+<li>创建多个目录 「mkdir a b c」</li>
+<li>创建多层目录 「mkdir -p a/b/c/d/e」</li>
+<li>复制文件 「cp 1.txt 2.txt」</li>
+<li>复制路径 「cp -r a b」</li>
+</ol>
+<h3 id="2-删"><a href="#2-删" class="headerlink" title="2. 删"></a>2. 删</h3><ol>
+<li>删除一个文件 「rm 1.txt」</li>
+<li>删除一个目录 「rm -r a」/「rm -rf a」</li>
+</ol>
+<h3 id="3-改"><a href="#3-改" class="headerlink" title="3. 改"></a>3. 改</h3><ol>
+<li>改变当前目录 「cd &lt;路径&gt;」</li>
+<li>用程序打开文件 「start 1.txt」/「code 1.txt」</li>
+<li>清空文件 「echo ‘’ &gt; 1.txt」</li>
+<li>移动文件/目录 「mv &lt;路径1&gt; &lt;路径2&gt;」</li>
+<li>重命名文件/目录（同上） 「mv &lt;名字1&gt; &lt;名字2&gt;」</li>
+<li>修改文件最后更新时间 「touch 1.txt」</li>
+</ol>
+<h3 id="4-查"><a href="#4-查" class="headerlink" title="4. 查"></a>4. 查</h3><ol>
+<li>查看当前目录的绝对路径 「pwd」</li>
+<li>查看当前目录内容 「ls」</li>
+<li>查看当前目录详细内容 「ls -l」</li>
+<li>查看指定目录内容 「ls &lt;路径&gt;」</li>
+<li>查看文件 「cat  / less &lt;路径&gt;」/「head / tail &lt;路径&gt; [-n 14]」</li>
+<li>查看上一个命令错误的代号 「echo $?」</li>
+<li>查看命令路径 「which &lt;命令&gt;」</li>
+</ol>
+<h3 id="5-其他命令"><a href="#5-其他命令" class="headerlink" title="5. 其他命令"></a>5. 其他命令</h3><ol>
+<li>「clear」 清屏</li>
+<li>「&lt;命令&gt; –help」 查询命令用法</li>
+<li>「tldr &lt;命令&gt;」 查询命令常见用法</li>
+</ol>
+<h3 id="6-常用快捷键"><a href="#6-常用快捷键" class="headerlink" title="6. 常用快捷键"></a>6. 常用快捷键</h3><ol>
+<li>「Ctrl + C」 – 中断当前命令</li>
+<li>「Ctrl + A」 – 光标移动到最前面</li>
+<li>「Ctrl + E」 – 光标移动到最后面</li>
+</ol>
+<h2 id="四、脚本文件"><a href="#四、脚本文件" class="headerlink" title="四、脚本文件"></a>四、脚本文件</h2><h3 id="1-命令组合"><a href="#1-命令组合" class="headerlink" title="1. 命令组合"></a>1. 命令组合</h3><ol>
+<li>「&amp;&amp; 操作」 当一条命令成功之后，执行下一条</li>
+<li>「; 操作」 不管成功和失败，都执行下一条</li>
+</ol>
+<h3 id="2-把命令变文件"><a href="#2-把命令变文件" class="headerlink" title="2. 把命令变文件"></a>2. 把命令变文件</h3><ol>
+<li>把命令组合写到一个文件，假设文件名是 onceDone</li>
+<li>给文件添加可执行权限 「chmod +X onceDone」</li>
+<li>运行脚本文件，需要正确的路径（用 bash 运行脚本文件） 「 sh onceDone [hello]」/「./onceDone [hello]」<ul>
+<li>可以接收一个参数，在文件中修改即可，如 mkdir $1</li>
+</ul>
+</li>
+<li>添加到 PATH ，就无需写路径了，可以直接运行 「onceDone」</li>
+</ol>
+<h2 id="五、添加新命令"><a href="#五、添加新命令" class="headerlink" title="五、添加新命令"></a>五、添加新命令</h2><p>下载安装 npm、yarn、node.js 工具并已添加到环境变量，可以直接使用该命令，npm 和 yarn 可以安装 JS 相关的包。</p>
+<p>在官网下载的 Python 自带 pip 工具并已添加到环境变量，可以直接使用该命令，它可以安装 Python 相关的包。</p>
+<p>与脚本文件有异曲同工之妙呀</p>
+<h2 id="六、JS-相关命令"><a href="#六、JS-相关命令" class="headerlink" title="六、JS 相关命令"></a>六、JS 相关命令</h2><ol>
+<li>npm 和 yarn – 包安装工具</li>
+</ol>
+<pre><code class="hljs vim">// 安装包
+npm i -g <span class="hljs-symbol">&lt;packageName&gt;</span>   yarn <span class="hljs-keyword">global</span> <span class="hljs-built_in">add</span> <span class="hljs-symbol">&lt;packageName&gt;</span>
+npm <span class="hljs-keyword">list</span> -g --depth=<span class="hljs-number">0</span>   yarn <span class="hljs-keyword">global</span> <span class="hljs-keyword">list</span>
+npm un -g <span class="hljs-symbol">&lt;packageName&gt;</span>  yarn <span class="hljs-keyword">global</span> <span class="hljs-built_in">remove</span> <span class="hljs-symbol">&lt;packageName&gt;</span>
+
+// 使用淘宝源
+npm i -g nrm						yarn <span class="hljs-keyword">global</span> <span class="hljs-built_in">add</span> yrm
+nrm <span class="hljs-keyword">ls</span>                  yrm <span class="hljs-keyword">ls</span>
+nrm use taobao          yrm use taobao</code></pre>
+
+
+<pre><code class="hljs cs"><span class="hljs-comment">// 使用 yarn 引入 jQuery，新增 node_modules 目录</span>
+yarn init
+yarn <span class="hljs-keyword">add</span> jquery</code></pre>
+
+
+<pre><code class="hljs jboss-cli"><span class="hljs-string">//</span> 使用 yarn build 代替 parcel build <span class="hljs-string">...</span>
+<span class="hljs-string">//</span> 先初始化，其中 -y, <span class="hljs-params">--yes</span>  use default options
+<span class="hljs-string">//</span> 在 package.json 中添加如下键值对 <span class="hljs-string">"scripts"</span><span class="hljs-function">:...</span>
+<span class="hljs-string">//</span> 愉快简洁地打包
+yarn init -y  
+<span class="hljs-string">"scripts"</span>: &#123;
+    <span class="hljs-string">"build"</span>: <span class="hljs-string">"rm -rf dist &amp;&amp; parcel build src/index.html --no-minify --public-url ./"</span>
+  &#125;
+ yarn bulid</code></pre>
+
+
+<ol start="2">
+<li>tldr – 查询命令用法</li>
+<li>http-server – 本地开 http 服务器</li>
+<li>parcel – 打包工具</li>
+</ol>
+<pre><code class="hljs oxygene"><span class="hljs-comment">// 使用 parcel 开发</span>
+yarn <span class="hljs-keyword">global</span> <span class="hljs-keyword">add</span> parcel
+parcel src/<span class="hljs-keyword">index</span>.html
+parcel build src/<span class="hljs-keyword">index</span>.html --no-minify --<span class="hljs-keyword">public</span>-url ./</code></pre>
+
+
+<ol start="5">
+<li>node – 开一个后端服务器</li>
+<li>node-dev – 比 node 好用</li>
+</ol>
+<h2 id="七、Python-相关命令"><a href="#七、Python-相关命令" class="headerlink" title="七、Python 相关命令"></a>七、Python 相关命令</h2><ol>
+<li>pip – 包安装工具</li>
+</ol>
+<pre><code class="hljs vim">pip install <span class="hljs-symbol">&lt;package_name&gt;</span>
+pip <span class="hljs-keyword">list</span>
+pip uninstall <span class="hljs-symbol">&lt;package_name&gt;</span>
+
+// 临时使用阿里云的源
+pip install <span class="hljs-symbol">&lt;package_name&gt;</span> -i http<span class="hljs-variable">s:</span>//mirrors.aliyun.<span class="hljs-keyword">com</span>/pypi/simple
+// 使用阿里云的源
+%appdata% 进入 AppData\Roaming 目录
+<span class="hljs-built_in">mkdir</span> pip
+<span class="hljs-keyword">cd</span> pip
+touch pip.ini
+<span class="hljs-keyword">echo</span> -<span class="hljs-keyword">e</span> <span class="hljs-string">"[global]\ntimeout = 6000\nindex-url = https://mirrors.aliyun.com/pypi/simple/\ntrusted-host = mirrors.aliyun.com"</span> &gt; pip.ini</code></pre>
+
+
+<p><em>「@浪里淘沙的小法师」</em></p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/04/24/Git%20%E5%91%BD%E4%BB%A4/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Git 命令</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/04/23/%E4%BB%A3%E7%A0%81%E7%BC%96%E8%BE%91%E5%99%A8/">
+                        <span class="hidden-mobile">代码编辑器</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "命令行&nbsp;",
+      ],
+      cursorChar: "",
+      typeSpeed: 80,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

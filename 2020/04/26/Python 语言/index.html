@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/logo.png">
+  <link rel="icon" type="image/png" href="/img/logo.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>Python 语言 - 浪里淘沙的小法师</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>浪里淘沙的小法师</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-04-26 20:00">
+      2020年4月26日 晚上
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      697 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      9
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>Python 语言的相关知识，内容包括数据类型、函数、对象、类。</p>
+<h2 id="一、数据类型"><a href="#一、数据类型" class="headerlink" title="一、数据类型"></a>一、数据类型</h2><p>Python 数据类型可以分成两大类，基本类型和容器类型</p>
+<ul>
+<li>基本类型：整数、浮点数、复数、字符串、逻辑值</li>
+</ul>
+<pre><code class="hljs autoit"><span class="hljs-built_in">number</span> = <span class="hljs-number">1</span>
+number2 = <span class="hljs-number">2.2</span>
+number3 = <span class="hljs-number">3</span>+<span class="hljs-number">3</span>j
+<span class="hljs-built_in">string</span> = <span class="hljs-string">'Hello'</span>
+t = <span class="hljs-literal">True</span> / <span class="hljs-literal">False</span>
+
+type(<span class="hljs-built_in">number</span>)  <span class="hljs-meta"># &lt;class <span class="hljs-string">'int'</span>&gt;</span></code></pre>
+
+
+<ul>
+<li>容器类型：列表、元组、字典、集合</li>
+</ul>
+<pre><code class="hljs angelscript">list1 = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>] 
+tuple1 = (<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>)
+dict1 = &#123;<span class="hljs-string">'a'</span>:<span class="hljs-number">1</span>, <span class="hljs-string">'b'</span>:<span class="hljs-number">2</span>, <span class="hljs-string">'c'</span>:<span class="hljs-number">3</span>&#125;
+set1 = &#123;<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">6</span>,<span class="hljs-number">8</span>&#125;</code></pre>
+
+
+<p><strong>一些数学运算</strong><br>**</p>
+<pre><code class="hljs angelscript"><span class="hljs-number">5</span>/<span class="hljs-number">2</span>  # <span class="hljs-number">2.5</span>，这是完整的除法，得到完整的商
+<span class="hljs-number">5</span><span class="hljs-comment">//2  # 2，得到商的整数部分</span>
+<span class="hljs-number">5</span>%<span class="hljs-number">2</span>  # <span class="hljs-number">1</span>，得到余数
+divmod(<span class="hljs-number">5</span>,<span class="hljs-number">2</span>)  # (<span class="hljs-number">2</span>,<span class="hljs-number">1</span>)，得到一个元组，分别是商的整数部分和余数
+<span class="hljs-number">2</span>**<span class="hljs-number">3</span>  # <span class="hljs-number">8</span>，<span class="hljs-number">2</span> 的 <span class="hljs-number">3</span> 次方
+abs(<span class="hljs-number">-3</span>)  # <span class="hljs-number">3</span>，求绝对值
+<span class="hljs-number">7</span> &gt; <span class="hljs-number">3</span> &gt;=<span class="hljs-number">4</span>  # True，连续判断</code></pre>
+
+
+<p><strong>一些逻辑值判断</strong></p>
+<ul>
+<li>对于整数、浮点数和复数类型，0是“假”，所有非0的数值都是“真”</li>
+<li>对于字符串类型，空串(“”)是“假”，所有非空串都是“真”</li>
+<li>所有序列类型（包括字符串），空序列是“假”，所有非空的序列都是“真”</li>
+<li>空值None表示“无意义”或“不知道”，也是“假”</li>
+</ul>
+<h2 id="二、函数"><a href="#二、函数" class="headerlink" title="二、函数"></a>二、函数</h2><p>在命名变量的时，我被“坑”了一波，不能直接使用 list、set、dict，因为这几个名字在 Python 已经是函数名了</p>
+<ul>
+<li>与 JavaScript 不同，JavaScript 可以直接使用 array，object 等，因为它的函数名是大写</li>
+<li>这里以后我要注意了，在变量名加一个后面接一个数字</li>
+</ul>
+<pre><code class="hljs angelscript"><span class="hljs-comment">// 普通函数</span>
+def f(a,b):
+	<span class="hljs-keyword">return</span> a+<span class="hljs-number">2</span>*b
+
+f(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>)  # <span class="hljs-number">5</span>
+
+<span class="hljs-comment">// 匿名函数</span>
+f = lambda a,b:<span class="hljs-number">2</span>*a+b
+
+f(<span class="hljs-number">2</span>,<span class="hljs-number">3</span>)  # <span class="hljs-number">7</span></code></pre>
+
+
+<p><strong>map() 函数</strong></p>
+<ul>
+<li>Python 3.x 中，map() 返回一个迭代器，从前 Python 2.x 中是返回一个列表</li>
+</ul>
+<pre><code class="hljs angelscript">list1 = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>]
+f = lambda x:x**<span class="hljs-number">2</span>
+
+list(map(f,list1))  # [<span class="hljs-number">1</span>,<span class="hljs-number">4</span>,<span class="hljs-number">9</span>,<span class="hljs-number">16</span>,<span class="hljs-number">25</span>]</code></pre>
+
+
+<h2 id="三、对象"><a href="#三、对象" class="headerlink" title="三、对象"></a>三、对象</h2><ul>
+<li>Python 中的所有事物都是以对象形式存在，从简单的数值类型，到复杂的代码模块，都是对象</li>
+<li>对象以 id 作为标识，既包含数据(属性)，也包含代码(方法)，是某一类具体事物的特殊实例</li>
+</ul>
+<pre><code class="hljs applescript"><span class="hljs-comment"># 查看 id</span>
+<span class="hljs-built_in">id</span>(<span class="hljs-number">1</span>)  <span class="hljs-comment"># 140714626041504</span>
+
+<span class="hljs-comment"># 查看属性和方法</span>
+dir(<span class="hljs-number">1</span>)</code></pre>
+
+
+<h2 id="四、类"><a href="#四、类" class="headerlink" title="四、类"></a>四、类</h2><pre><code class="hljs monkey"><span class="hljs-meta"># 定义一个矩形类</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Reactangle</span>:</span>
+	def __init__(<span class="hljs-built_in">self</span>,length,width):
+  	<span class="hljs-built_in">self</span>.length = length
+    <span class="hljs-built_in">self</span>.width = width
+    <span class="hljs-built_in">self</span>.name = <span class="hljs-string">"Name: reactangle"</span>
+  def area(<span class="hljs-built_in">self</span>):
+ 		<span class="hljs-keyword">return</span> <span class="hljs-built_in">self</span>.length*<span class="hljs-built_in">self</span>.width
+  def perimeter(<span class="hljs-built_in">self</span>):
+ 		<span class="hljs-keyword">return</span> (<span class="hljs-built_in">self</span>.length+<span class="hljs-built_in">self</span>.width)*<span class="hljs-number">2</span>
+
+reactangle = Reactangle(<span class="hljs-number">3</span>,<span class="hljs-number">4</span>)
+<span class="hljs-built_in">print</span>(reactangle.area())  // <span class="hljs-number">12</span>
+<span class="hljs-built_in">print</span>(reactanle.perimeter())  // <span class="hljs-number">14</span>
+
+<span class="hljs-meta"># 定义一个正方形类，继承矩形类，额外可以计算出以它的边长形成的立方体体积</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Square</span>(<span class="hljs-title">Reactangle</span>):</span>
+	def __init__(<span class="hljs-built_in">self</span>,width):
+  	<span class="hljs-built_in">self</span>.length = width
+  	<span class="hljs-built_in">self</span>.width = width
+    <span class="hljs-built_in">self</span>.name = <span class="hljs-string">"Name: square"</span>
+  def volumn(<span class="hljs-built_in">self</span>):
+  	<span class="hljs-keyword">return</span> <span class="hljs-built_in">pow</span>(<span class="hljs-built_in">self</span>.width,<span class="hljs-number">3</span>)
+ 
+ square = Square(<span class="hljs-number">5</span>)
+ <span class="hljs-built_in">print</span>(square.area())  // <span class="hljs-number">25</span>
+ <span class="hljs-built_in">print</span>(square.perimeter())  // <span class="hljs-number">20</span>
+ <span class="hljs-built_in">print</span>(square.volumn())  // <span class="hljs-number">125</span></code></pre>
+
+
+<p><em>「@浪里淘沙的小法师」</em></p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/04/27/JavaScript%20%E8%AF%AD%E8%A8%80/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">JavaScript 语言</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/04/26/%E7%BC%96%E7%A8%8B/">
+                        <span class="hidden-mobile">编程</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Python 语言&nbsp;",
+      ],
+      cursorChar: "",
+      typeSpeed: 80,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
