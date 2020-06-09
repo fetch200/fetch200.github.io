@@ -44,7 +44,7 @@ HTTP 的相关知识，内容包括 URL、IP、域名、端口页面请求、HTT
 
 
 这个网站可以获取到自己现在上网的「外网 IP」→ [_https://ip138.com/_](https://ip138.com/)
-_
+
 ping 命令用于测试网络是否连通
 ```
 ping baidu.com

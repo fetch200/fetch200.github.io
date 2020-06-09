@@ -10,9 +10,9 @@ JSON 语言的相关知识，内容包括简介、JSON 的两种形式、对象�
 
 
 JSON 全称 JavaScript Object Notion，是一种轻量级的数据交换语言，它借鉴了 JavaScript 语言
-_
-_中文官网：→ _[_点击这里_](http://json.org/json-zh.html)
-_
+
+_中文官网：→_[_点击这里_](http://json.org/json-zh.html)
+
 ## 二、JSON 的两种形式
 
 

@@ -134,9 +134,6 @@ console.dir(reactangle)
 ```
 
 
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/916537/1588151560837-a696670b-de0c-4e00-af31-5f1f6e270a6f.png#align=left&display=inline&height=183&margin=%5Bobject%20Object%5D&name=image.png&originHeight=187&originWidth=477&size=9523&status=done&style=none&width=467)
-
-
 - new 命令的作用是执行构造函数，并返回一个实例对象
 - 在构造函数外部的函数就是类的「方法」，它没有挂在实例上
 
@@ -166,9 +163,6 @@ class Reactangle{
 let reactangle = new Reactangle(3,4)
 console.dir(reactangle)
 ```
-
-
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/916537/1588151678992-32888baa-d4ef-48e2-9524-1001290450e6.png#align=left&display=inline&height=199&margin=%5Bobject%20Object%5D&name=image.png&originHeight=185&originWidth=438&size=8763&status=done&style=none&width=471)
 
 
 ### 3. 另一种函数写法

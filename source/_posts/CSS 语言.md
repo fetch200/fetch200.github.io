@@ -8,7 +8,7 @@ categories: 基础知识
 CSS 的相关知识，内容包括初始化 CSS 代码、文本在 div 里居中、div 居中、让 div 占屏幕的 50%、CSS 选择器、CSS 动画、滚动栏。
 
 
-_之前写过一篇有关 CSS 的总结 → _[_点击这里_](https://juejin.im/post/5e4f741fe51d452717262614#heading-0)
+_之前写过一篇有关 CSS 的总结 →_[_点击这里_](https://juejin.im/post/5e4f741fe51d452717262614#heading-0)
 
 
 ## 一、初始化 CSS 代码

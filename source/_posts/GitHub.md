@@ -31,9 +31,6 @@ GitHub 有生成 SSH Key 帮助文档：→ [_点击这里_](https://help.githu
 「Settings」→「SSH and GPG keys」→「New SSH key」→「Title: <给设备取名字>」+「Key: <公钥>」
 
 
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/916537/1587104930810-ac6afdda-bd9d-4d8a-998d-750036cb6074.png#align=left&display=inline&height=290&margin=%5Bobject%20Object%5D&name=image.png&originHeight=536&originWidth=1251&size=43836&status=done&style=none&width=678)
-
-
 ## 三、配置域名
 
 
@@ -52,7 +49,6 @@ GitHub 有生成 SSH Key 帮助文档：→ [_点击这里_](https://help.githu
 185.199.111.153
 ```
 可以使用 nslookup <域名> 查看域名是否生效了
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/916537/1587108392758-97ff8087-45c8-4f44-bdd8-67f515e9b830.png#align=left&display=inline&height=197&margin=%5Bobject%20Object%5D&name=image.png&originHeight=328&originWidth=1243&size=37265&status=done&style=none&width=746)
 
 
 ## 四、上传代码并设置 Pages

@@ -34,7 +34,7 @@ Markdown 是一种轻量级标记语言，它让我们可以使用纯文本的�
 
 [链接](https://www.yuque.com/machaoxue/notes/mohfo7/)
 
-![插入图片](https://cdn.nlark.com/yuque/0/2020/png/916537/1587718621905-c730c4ca-ea2e-45cf-8131-c4ff94e3b38f.png)
+
 
 >引用
 

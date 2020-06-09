@@ -8,7 +8,7 @@ categories: 基础知识
 HTML 的相关知识，内容包括 Emmet 操作，命名。
 
 
-_之前写过一篇 HTML 标签的总结 → _[_点击这里_](https://juejin.im/post/5e70bb7e51882549265ccbbf)
+_之前写过一篇 HTML 标签的总结 →_[_点击这里_](https://juejin.im/post/5e70bb7e51882549265ccbbf)
 
 
 ## 一、Emmet 操作
@@ -41,6 +41,5 @@ ol*2>li*3
 <div class="button-list"></div>
 <button class="commit-button"></button>
 ```
-
 
 _「@浪里淘沙的小法师」_
