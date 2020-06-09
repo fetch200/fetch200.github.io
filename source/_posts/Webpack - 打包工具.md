@@ -192,8 +192,6 @@ modules.exports = {
 
 对于静态页面，我们都希望浏览器能够进行缓存，那样以后进入页面就可以直接使用缓存资源，这里利用 hash 方式修改文件名，以达到缓存目的。
 
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/916537/1587732917812-b4499070-3a93-4e28-8e6a-f4bc540efdcb.png#align=left&display=inline&height=220&margin=%5Bobject%20Object%5D&name=image.png&originHeight=524&originWidth=1773&size=122936&status=done&style=none&width=746)
-
 
 ```
 modules.export = {
@@ -205,7 +203,7 @@ modules.export = {
 
 
 **配置 build**
-**
+
 因为使用了给文件添加了 hash，每次生成新的文件，老的文件需要我们手动删除，所以这里重新配置 build。
 ```
 "scripts":{
@@ -233,12 +231,12 @@ console.log('Hi')
 
 
 **安装 html-webpack-plugin、webpack-dev-server**
-**
+
 
 - html-webpack-plugin 可以自动生成 HTML
 - webpack-dev-server 可以响应式预览 HTML，文件都保存在内存中，使开发变得又快又方便
 
-**
+
 ```
 yarn add html-webpack-plugin webpack-dev-server --dev
 ```
@@ -278,7 +276,7 @@ modules.export = {
 
 
 **HTML 预览**
-**
+
 直接运行以下命令即可
 ```
 webpack-dev-server
@@ -389,7 +387,7 @@ yarn build
 
 
 **安装 sass-loader 和 dart-sass**
-**
+
 
 - sass-loader 依赖于 dart-sass / node-sass，优先使用 dart-sass
 - sass-loader 将 SCSS 转译成 CSS
@@ -442,7 +440,7 @@ $app2-color:blue;
 
 
 **安装 less-loader 和 less**
-**
+
 ```
 yarn add less-loader less --dev
 ```
@@ -480,7 +478,7 @@ style.less 中
 
 
 **安装 stylus-loader 和 stylus**
-**
+
 ```
 yarn add stylus-loader stylus --dev
 ```
@@ -518,7 +516,7 @@ f = 40px;
 
 
 **安装 file-loader**
-**
+
 
 - file-loader 的作用是把文件转换成文件路径
 

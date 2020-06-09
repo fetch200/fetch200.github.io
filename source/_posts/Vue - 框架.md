@@ -13,7 +13,7 @@ Vue 的相关知识，内容包括简介、创建一个 Vue 项目、Vue 的使�
 
 Vue 是一个用于创建用户界面的开源 JavaScript 框架_
 
-_中文官网：Vue.js → [点击这里](https://cn.vuejs.org/index.html) _
+_中文官网：Vue.js → [点击这里](https://cn.vuejs.org/index.html)_
 
 _中文官网：Vue CLI → [点击这里](https://cli.vuejs.org/zh/)_
 
@@ -160,7 +160,7 @@ let vm = new Vue(options)
 
 - 中文、英文对照着看，这岂不是又一个学习英语的好时机[🤞](https://emojipedia.org/crossed-fingers/)
 
-_
+
 ## 五、Options / Data
 
 

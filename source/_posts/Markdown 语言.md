@@ -35,7 +35,6 @@ Markdown 是一种轻量级标记语言，它让我们可以使用纯文本的�
 [链接](https://www.yuque.com/machaoxue/notes/mohfo7/)
 
 
-
 >引用
 
 | 姓名   | 语文  | 数学   |   英语 |
@@ -71,11 +70,8 @@ Markdown 是一种轻量级标记语言，它让我们可以使用纯文本的�
 ```
 代码
 ```
-**
+
 **加粗**    _斜体    _[链接](https://www.yuque.com/machaoxue/notes/mohfo7/)
-
-
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/916537/1587718621905-c730c4ca-ea2e-45cf-8131-c4ff94e3b38f.png#align=left&display=inline&height=469&margin=%5Bobject%20Object%5D&name=image.png&originHeight=744&originWidth=593&size=36012&status=done&style=none&width=374)
 
 
 
