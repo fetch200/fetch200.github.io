@@ -1,7 +1,6 @@
 ---
 title: AJAX - JS Core
 date: 2020/4/30 20:00:00
-index_img: /img/basis.jpg
 categories: 基础知识
 ---
 

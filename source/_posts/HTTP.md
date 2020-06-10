@@ -1,7 +1,6 @@
 ---
 title: HTTP
 date: 2020/4/24 20:00:00
-index_img: /img/basis.jpg
 categories: 基础知识
 ---
 

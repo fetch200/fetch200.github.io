@@ -1,7 +1,6 @@
 ---
 title: React - 框架
 date: 2020/5/4 21:00:00
-index_img: /img/basis.jpg
 categories: 基础知识
 ---
 

@@ -1,7 +1,6 @@
 ---
 title: Webpack - 打包工具
 date: 2020/5/4 19:00:00
-index_img: /img/basis.jpg
 categories: 基础知识
 ---
 
@@ -15,9 +14,9 @@ Webpack 是一个模块打包工具
 
 
 _官网：→ _[_点击这里_](https://webpack.docschina.org/)
-_
+
 ### 1. 简单类比
-_
+
 Webpack 就像一个没有装修过的“毛坯房”，提供了一个基本的“房子”，满足遮风挡雨的需求，不能直接满足睡觉、写字等需求。
 
 

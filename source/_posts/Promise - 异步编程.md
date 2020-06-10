@@ -1,7 +1,6 @@
 ---
 title: Promise - 异步编程
 date: 2020/5/3 20:00:00
-index_img: /img/basis.jpg
 categories: 基础知识
 ---
 

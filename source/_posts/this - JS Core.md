@@ -1,7 +1,6 @@
 ---
 title: this - JS Core
 date: 2020/4/30 19:00:00
-index_img: /img/basis.jpg
 categories: 基础知识
 ---
 

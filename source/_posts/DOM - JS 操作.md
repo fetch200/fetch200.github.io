@@ -1,7 +1,6 @@
 ---
 title: DOM - JS 操作
 date: 2020/5/1 18:00:00
-index_img: /img/basis.jpg
 categories: 基础知识
 ---
 

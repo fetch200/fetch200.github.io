@@ -1,7 +1,6 @@
 ---
 title: Markdown 语言
 date: 2020/4/29 19:00:00
-index_img: /img/basis.jpg
 categories: 基础知识
 ---
 
