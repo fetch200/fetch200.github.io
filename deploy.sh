@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -e
-rm -rf build
+rm -rf public
 yarn build
 cd public
 git init

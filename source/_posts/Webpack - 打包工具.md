@@ -36,7 +36,7 @@ Webpack 内置 babel-loader，能够加载 JS，不能直接加载 HTML、CSS等
 - 引入 Stylus，配置 stylus-loader、stylus
 - 引入图片，配置 file-loader
 
-_
+
 ## 二、安装 Webpack
 
 
